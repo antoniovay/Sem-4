@@ -5,10 +5,26 @@
 //  Created by Antony Miroshnichenko on 20.02.2024.
 //
 
-#include <iostream>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+
+#include "Funcs.hpp"
+
+
+
+int main() {
+    
+    scanFile("000.txt");
+    
+    std::cout << "Начальный файл: ";
+    printFile ("000.txt");
+    
+
+    sort3f("000.txt");
+    
+    
+    std::cout << std::endl << "Отсортированный файл: ";
+    printFile ("000.txt");
+    
+    std::cout << std::endl;
+    
 }
