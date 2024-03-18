@@ -81,7 +81,7 @@ bool isFileContainsSortedArray (const std::string& fileName) {
 
 
 
-void merge (const std::string filenameIn1, const std::string filenameIn2, const std::string filenameOut1, const std::string filenameOut2, int size) {
+void merge4d (const std::string filenameIn1, const std::string filenameIn2, const std::string filenameOut1, const std::string filenameOut2, int size) {
     
     std::ifstream fin1;
     std::ifstream fin2;
@@ -243,7 +243,7 @@ void merge (const std::string filenameIn1, const std::string filenameIn2, const 
 
 
 
-void split (const std::string& filenameIn, const std::string& filenameOut1, const std::string& filenameOut2) {
+void split4d (const std::string& filenameIn, const std::string& filenameOut1, const std::string& filenameOut2) {
     
     std::ifstream fin;
     std::ofstream fout1;
@@ -451,15 +451,15 @@ std::string sorted (const std::string& filename1, const std::string& filename2, 
 
 void sortFile (const std::string& fileName) {
     
-    split(fileName, "C.txt", "D.txt");
+    split4d(fileName, "C.txt", "D.txt");
 
     int i = 1;
     
     while (!check(fileName, "B.txt", "C.txt", "D.txt")) {
         
-        merge("C.txt", "D.txt", fileName, "B.txt", i);
+        merge4d("C.txt", "D.txt", fileName, "B.txt", i);
         i *= 2;
-        merge(fileName, "B.txt", "C.txt", "D.txt", i);
+        merge4d(fileName, "B.txt", "C.txt", "D.txt", i);
         i *= 2;
         
     }
