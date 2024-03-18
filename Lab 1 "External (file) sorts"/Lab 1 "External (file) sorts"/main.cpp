@@ -11,20 +11,32 @@
 
 
 
-int main() {
-    
-    scanFile("000.txt");
-    
-    std::cout << "Начальный файл: ";
-    printFile ("000.txt");
-    
+int main()
+{
+    std::string fileName = "A.txt";
+    const int numbersCount = 1000000;
+    const int maxNumberValue = 100000;
 
-    sort3f("000.txt");
-    
-    
-    std::cout << std::endl << "Отсортированный файл: ";
-    printFile ("000.txt");
-    
-    std::cout << std::endl;
+    for (int i = 0; i < 10; i++) {
+        
+        switch (createAndSortFile(fileName, numbersCount, maxNumberValue)) {
+                
+            case 1:
+                std::cout << "Тест пройден." << std::endl;
+                break;
+                
+            case -1:
+                std::cout << "Тест провален: невозможно открыть файл." << std::endl;
+                break;
+
+            case -2:
+                std::cout << "Тест провален: массив не отсортирован." << std::endl;
+                break;
+                
+        }
+        
+    }
+
+    return 0;
     
 }
