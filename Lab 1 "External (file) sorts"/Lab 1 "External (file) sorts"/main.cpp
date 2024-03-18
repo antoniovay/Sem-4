@@ -13,13 +13,16 @@
 
 int main()
 {
+    
+    const int P = 1;     // Параметр, отвечающий за выбор алгоритма выбора отрезков (0 - прямое слияние, 1 - естественное слияние)
+    
     std::string fileName = "A.txt";
     const int numbersCount = 1000000;
     const int maxNumberValue = 100000;
 
     for (int i = 0; i < 10; i++) {
         
-        switch (createAndSortFile(fileName, numbersCount, maxNumberValue)) {
+        switch (createAndSortFile(fileName, numbersCount, maxNumberValue, P)) {
                 
             case 1:
                 std::cout << "Тест пройден." << std::endl;

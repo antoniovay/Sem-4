@@ -19,16 +19,23 @@ bool createFileWithRandomNumbers (const std::string& fileName, const int numbers
 
 bool isFileContainsSortedArray (const std::string& fileName);
 
-void merge4d (const std::string filenameIn1, const std::string filenameIn2, const std::string filenameOut1, const std::string filenameOut2, int size);
 
-void split4d (const std::string& filenameIn, const std::string& filenameOut1, const std::string& filenameOut2);
+void split4d (const std::string& fnameIn, const std::string& fnameOut1, const std::string& fnameOut2);
 
-bool check (const std::string& filenameIn1, const std::string& filenameIn2, const std::string& filenameIn3, const std::string& filenameIn4);
+void merge4d (const std::string fnameIn1, const std::string fnameIn2, const std::string fnameOut1, const std::string fnameOut2, int size);
 
-void print (const std::string& filename);
 
-std::string sorted (const std::string& filename1, const std::string& filename2, const std::string& filename3, const std::string& filename4);
+void split4n (const std::string& fnameIn, const std::string& fnameOut1, const std::string& fnameOut2);
 
-void sortFile (const std::string& fileName);
+void merge4n (const std::string fnameIn1, const std::string fnameIn2, const std::string fnameOut1, const std::string fnameOut2, int size);
 
-int createAndSortFile (const std::string& fileName, const int  numbersCount, const int maxNumberValue);
+
+bool check (const std::string& fnameIn1, const std::string& fnameIn2, const std::string& fnameIn3, const std::string& fnameIn4);
+
+void print (const std::string& fileName);
+
+std::string sorted (const std::string& fname1, const std::string& fname2, const std::string& fname3, const std::string& fname4);
+
+void sortFile (const std::string& fileName, const int p);
+
+int createAndSortFile (const std::string& fileName, const int  numbersCount, const int maxNumberValue, const int p);

@@ -81,7 +81,64 @@ bool isFileContainsSortedArray (const std::string& fileName) {
 
 
 
-void merge4d (const std::string filenameIn1, const std::string filenameIn2, const std::string filenameOut1, const std::string filenameOut2, int size) {
+void split4d (const std::string& fnameIn, const std::string& fnameOut1, const std::string& fnameOut2) {
+    
+    std::ifstream fin;
+    std::ofstream fout1;
+    std::ofstream fout2;
+    
+    int size = 1;
+
+    fin.open(fnameIn, std::ios_base::in);
+    fout1.open(fnameOut1, std::ios_base::trunc);
+    fout2.open(fnameOut2, std::ios_base::trunc);
+    
+    if (!fin || !fout1 || !fout2) {
+        
+        std::cout << std::endl << "Не получилось открыть файл" << std::endl;
+        
+        return;
+        
+    }
+
+    
+    int x;
+    
+    fin >> x;
+    
+    while (!fin.eof()) {
+        
+        int i = 0;
+        
+        while (!fin.eof() && i < size) {
+            
+            fout1 << x << " ";
+            fin >> x;
+            i++;
+            
+        }
+        
+        i = 0;
+        
+        while (!fin.eof() && i < size) {
+            
+            fout2 << x << " ";
+            fin >> x;
+            i++;
+            
+        }
+        
+    }
+
+    fin.close();
+    fout1.close();
+    fout2.close();
+    
+}
+
+
+
+void merge4d (const std::string fnameIn1, const std::string fnameIn2, const std::string fnameOut1, const std::string fnameOut2, int size) {
     
     std::ifstream fin1;
     std::ifstream fin2;
@@ -89,40 +146,40 @@ void merge4d (const std::string filenameIn1, const std::string filenameIn2, cons
     std::ofstream fout2;
 
 
-    fin1.open(filenameIn1, std::ios_base::in);
+    fin1.open(fnameIn1, std::ios_base::in);
     
     if (!fin1) {
         
-        std::cout << "Can't open file: " << filenameIn1 << std::endl;
+        std::cout << "Can't open file: " << fnameIn1 << std::endl;
         return;
         
     }
 
     
-    fin2.open(filenameIn2, std::ios_base::in);
+    fin2.open(fnameIn2, std::ios_base::in);
     
     if (!fin2) {
         
-        std::cout << "Can't open file: " << filenameIn2 << std::endl;
+        std::cout << "Can't open file: " << fnameIn2 << std::endl;
         return;
         
     }
 
     
-    fout1.open(filenameOut1, std::ios_base::trunc);
+    fout1.open(fnameOut1, std::ios_base::trunc);
     
     if (!fout1) {
         
-        std::cout << "Can't open file: " << filenameOut1 << std::endl;
+        std::cout << "Can't open file: " << fnameOut1 << std::endl;
         return;
         
     }
 
-    fout2.open(filenameOut2, std::ios_base::trunc);
+    fout2.open(fnameOut2, std::ios_base::trunc);
     
     if (!fout2) {
         
-        std::cout << "Can't open file: " << filenameOut2 << std::endl;
+        std::cout << "Can't open file: " << fnameOut2 << std::endl;
         return;
         
     }
@@ -234,8 +291,8 @@ void merge4d (const std::string filenameIn1, const std::string filenameIn2, cons
     fout1.close();
     fout2.close();
 
-    fout1.open(filenameIn1, std::ios_base::trunc);
-    fout2.open(filenameIn2, std::ios_base::trunc);
+    fout1.open(fnameIn1, std::ios_base::trunc);
+    fout2.open(fnameIn2, std::ios_base::trunc);
     fout1.close();
     fout2.close();
     
@@ -243,86 +300,14 @@ void merge4d (const std::string filenameIn1, const std::string filenameIn2, cons
 
 
 
-void split4d (const std::string& filenameIn, const std::string& filenameOut1, const std::string& filenameOut2) {
-    
-    std::ifstream fin;
-    std::ofstream fout1;
-    std::ofstream fout2;
-    
-    int size = 1;
-
-    fin.open(filenameIn, std::ios_base::in);
-    
-    if (!fin) {
-        
-        std::cout << "\nCan't open file: " << filenameIn << "!" << std::endl;
-        return;
-        
-    }
-
-    fout1.open(filenameOut1, std::ios_base::trunc);
-    
-    if (!fout1) {
-        
-        std::cout << "\nCan't open file: " << filenameOut1 << "!" << std::endl;
-        return;
-        
-    }
-
-    fout2.open(filenameOut2, std::ios_base::trunc);
-    
-    if (!fout2) {
-        
-        std::cout << "\nCan't open file: " << filenameOut2 << "!" << std::endl;
-        return;
-        
-    }
-
-    
-    int x;
-    
-    fin >> x;
-    
-    while (!fin.eof()) {
-        
-        int i = 0;
-        
-        while (!fin.eof() && i < size) {
-            
-            fout1 << x << " ";
-            fin >> x;
-            i++;
-            
-        }
-        
-        i = 0;
-        
-        while (!fin.eof() && i < size) {
-            
-            fout2 << x << " ";
-            fin >> x;
-            i++;
-            
-        }
-        
-    }
-
-    fin.close();
-    fout1.close();
-    fout2.close();
-    
-}
-
-
-
-bool check (const std::string& filenameIn1, const std::string& filenameIn2, const std::string& filenameIn3, const std::string& filenameIn4) {
+bool check (const std::string& fnameIn1, const std::string& fnameIn2, const std::string& fnameIn3, const std::string& fnameIn4) {
     
     std::ifstream fin;
     
     int count = 0;
 
     
-    fin.open(filenameIn1);
+    fin.open(fnameIn1);
     
     if (fin.peek() == std::ifstream::traits_type::eof())
         
@@ -331,7 +316,7 @@ bool check (const std::string& filenameIn1, const std::string& filenameIn2, cons
     fin.close();
 
     
-    fin.open(filenameIn2);
+    fin.open(fnameIn2);
     
     if (fin.peek() == std::ifstream::traits_type::eof())
         
@@ -340,7 +325,7 @@ bool check (const std::string& filenameIn1, const std::string& filenameIn2, cons
     fin.close();
     
 
-    fin.open(filenameIn3);
+    fin.open(fnameIn3);
     
     if (fin.peek() == std::ifstream::traits_type::eof())
         
@@ -349,7 +334,7 @@ bool check (const std::string& filenameIn1, const std::string& filenameIn2, cons
     fin.close();
     
 
-    fin.open(filenameIn4);
+    fin.open(fnameIn4);
     
     if (fin.peek() == std::ifstream::traits_type::eof())
         
@@ -368,12 +353,12 @@ bool check (const std::string& filenameIn1, const std::string& filenameIn2, cons
 
 
 
-void print (const std::string& filename) {
+void print (const std::string& fileName) {
     
     std::ifstream fin;
     std::ofstream fout;
 
-    fin.open(filename, std::ios_base::in);
+    fin.open(fileName, std::ios_base::in);
     
     int x;
     
@@ -391,53 +376,53 @@ void print (const std::string& filename) {
 
 
 
-std::string sorted (const std::string& filename1, const std::string& filename2, const std::string& filename3, const std::string& filename4) {
+std::string sorted (const std::string& fname1, const std::string& fname2, const std::string& fname3, const std::string& fname4) {
     
     std::ifstream fin;
 
     
-    fin.open(filename1);
+    fin.open(fname1);
     
     if (!(fin.peek() == std::ifstream::traits_type::eof())) {
         
         fin.close();
-        return filename1;
+        return fname1;
         
     }
     
     fin.close();
 
     
-    fin.open(filename2);
+    fin.open(fname2);
     
     if (!(fin.peek() == std::ifstream::traits_type::eof())) {
         
         fin.close();
-        return filename2;
+        return fname2;
         
     }
     
     fin.close();
     
 
-    fin.open(filename3);
+    fin.open(fname3);
     
     if (!(fin.peek() == std::ifstream::traits_type::eof())) {
         
         fin.close();
-        return filename3;
+        return fname3;
         
     }
     
     fin.close();
     
 
-    fin.open(filename4);
+    fin.open(fname4);
     
     if (!(fin.peek() == std::ifstream::traits_type::eof())) {
         
         fin.close();
-        return filename4;
+        return fname4;
         
     }
     
@@ -449,7 +434,7 @@ std::string sorted (const std::string& filename1, const std::string& filename2, 
 
 
 
-void sortFile (const std::string& fileName) {
+void sortFile (const std::string& fileName, const int p) {
     
     split4d(fileName, "C.txt", "D.txt");
 
@@ -468,7 +453,7 @@ void sortFile (const std::string& fileName) {
 
 
 
-int createAndSortFile (const std::string& fileName, const int  numbersCount, const int maxNumberValue) {
+int createAndSortFile (const std::string& fileName, const int  numbersCount, const int maxNumberValue, const int p) {
     
     if (!createFileWithRandomNumbers("A.txt", numbersCount, maxNumberValue))
         
@@ -478,7 +463,7 @@ int createAndSortFile (const std::string& fileName, const int  numbersCount, con
 
     start = clock();
 
-    sortFile(fileName);
+    sortFile(fileName, p);
 
     finish = clock();
     
