@@ -19,7 +19,7 @@ bool createFileWithRandomNumbers (const std::string& fileName, const int numbers
 
 bool isFileContainsSortedArray (const std::string& fileName);
 
-void merge (const std::string filenameIn1, const std::string filenameIn2, const std::string filenameOut1, const std::string filenameOut2, int size);
+void mergeDirect (const std::string filenameIn1, const std::string filenameIn2, const std::string filenameOut1, const std::string filenameOut2, int size);
 
 void split (const std::string& filenameIn, const std::string& filenameOut1, const std::string& filenameOut2);
 
