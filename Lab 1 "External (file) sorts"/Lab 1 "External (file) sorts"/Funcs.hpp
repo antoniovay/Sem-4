@@ -27,7 +27,7 @@ void merge4d (const std::string fnameIn1, const std::string fnameIn2, const std:
 
 void split4n (const std::string& fnameIn, const std::string& fnameOut1, const std::string& fnameOut2);
 
-void merge4n (const std::string fnameIn1, const std::string fnameIn2, const std::string fnameOut1, const std::string fnameOut2, int size);
+void merge4n (const std::string fnameIn1, const std::string fnameIn2, const std::string fnameOut1, const std::string fnameOut2);
 
 
 bool check (const std::string& fnameIn1, const std::string& fnameIn2, const std::string& fnameIn3, const std::string& fnameIn4);

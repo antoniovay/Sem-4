@@ -300,6 +300,78 @@ void merge4d (const std::string fnameIn1, const std::string fnameIn2, const std:
 
 
 
+void split4n (const std::string& fnameIn, const std::string& fnameOut1, const std::string& fnameOut2) {
+    
+    std::ifstream fin;
+    std::ofstream fout1;
+    std::ofstream fout2;
+
+    fin.open(fnameIn, std::ios_base::in);
+    fout1.open(fnameOut1, std::ios_base::trunc);
+    fout2.open(fnameOut2, std::ios_base::trunc);
+    
+    if (!fin || !fout1 || !fout2) {
+        
+        std::cout << std::endl << "Не получилось открыть файл" << std::endl;
+        
+        return;
+        
+    }
+
+    int x, y;
+    
+    
+    fin >> x;
+    
+    while (!fin.eof()) {
+        
+        fout1 << x << " ";
+        fin >> y;
+        
+        while (!fin.eof() && x <= y) {
+            
+            x = y;
+            fout1 << x << " ";
+            fin >> y;
+            
+        }
+        
+        if (!fin.eof()) {
+            
+            x = y;
+            fout2 << x << " ";
+            fin >> y;
+            
+            while (!fin.eof() && x <= y) {
+                
+                x = y;
+                fout2 << x << " ";
+                fin >> y;
+                
+            }
+            
+        }
+        
+        x = y;
+        
+    }
+
+    fin.close();
+    fout1.close();
+    fout2.close();
+    
+}
+
+
+
+void merge4n (const std::string fnameIn1, const std::string fnameIn2, const std::string fnameOut1, const std::string fnameOut2) {
+    
+    
+    
+}
+
+
+
 bool check (const std::string& fnameIn1, const std::string& fnameIn2, const std::string& fnameIn3, const std::string& fnameIn4) {
     
     std::ifstream fin;
@@ -436,16 +508,33 @@ std::string sorted (const std::string& fname1, const std::string& fname2, const 
 
 void sortFile (const std::string& fileName, const int p) {
     
-    split4d(fileName, "C.txt", "D.txt");
-
-    int i = 1;
-    
-    while (!check(fileName, "B.txt", "C.txt", "D.txt")) {
+    if (p == 0) {
         
-        merge4d("C.txt", "D.txt", fileName, "B.txt", i);
-        i *= 2;
-        merge4d(fileName, "B.txt", "C.txt", "D.txt", i);
-        i *= 2;
+        split4d (fileName, "C.txt", "D.txt");
+        
+        int i = 1;
+        
+        while (!check(fileName, "B.txt", "C.txt", "D.txt")) {
+            
+            merge4d ("C.txt", "D.txt", fileName, "B.txt", i);
+            i *= 2;
+            merge4d (fileName, "B.txt", "C.txt", "D.txt", i);
+            i *= 2;
+            
+        }
+        
+    }
+    
+    if (p == 1) {
+        
+        split4n (fileName, "C.txt", "D.txt");
+        
+        while (!check(fileName, "B.txt", "C.txt", "D.txt")) {
+            
+            merge4n ("C.txt", "D.txt", fileName, "B.txt");
+            merge4n (fileName, "B.txt", "C.txt", "D.txt");
+            
+        }
         
     }
     
