@@ -17,7 +17,7 @@ int main()
     const int P = 1;     // Параметр, отвечающий за выбор алгоритма выбора отрезков (0 - прямое слияние, 1 - естественное слияние)
     
     std::string fileName = "A.txt";
-    const int numbersCount = 5;
+    const int numbersCount = 10;
     const int maxNumberValue = 100000;
     
     switch (P) {

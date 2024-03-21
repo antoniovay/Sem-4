@@ -435,7 +435,9 @@ void merge4n (const std::string fnameIn1, const std::string fnameIn2, const std:
         }
         
         if (!fin1.eof() && !fin2.eof())
-            std::swap(fout1, fout2);
+            
+            fout1.swap(fout2);
+        
     }
 
     while (!fin1.eof()) {
