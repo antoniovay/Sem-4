@@ -273,7 +273,16 @@ void merge4d (const std::string fnameIn1, const std::string fnameIn2, const std:
     
 }
 
-
+struct Element
+{
+    int value;
+    bool isValid = false;
+    void read(std::ifstream &stream)
+    {
+        stream >> value;
+        isValid = bool(stream);
+    }
+};
 
 void split4n (const std::string& fnameIn, const std::string& fnameOut1, const std::string& fnameOut2) {
     
@@ -287,7 +296,7 @@ void split4n (const std::string& fnameIn, const std::string& fnameOut1, const st
     
     if (!fin || !fout1 || !fout2) {
         
-        std::cout << std::endl << "Не получилось открыть файл" << std::endl;
+        std::cerr << std::endl << "Не получилось открыть файл" << std::endl;
         
         return;
         
@@ -330,8 +339,6 @@ void split4n (const std::string& fnameIn, const std::string& fnameOut1, const st
         x = y;
         
     }
-    
-    fout1 << x << " ";
 
     fin.close();
     fout1.close();
@@ -356,7 +363,7 @@ void merge4n (const std::string fnameIn1, const std::string fnameIn2, const std:
     
     if (!fin1 || !fin2 || !fout1 || !fout2) {
         
-        std::cout << std::endl << "Не получилось открыть файл" << std::endl;
+        std::cerr << std::endl << "Не получилось открыть файл" << std::endl;
         
         return;
         
@@ -427,63 +434,8 @@ void merge4n (const std::string fnameIn1, const std::string fnameIn2, const std:
             
         }
         
-        
-        while (!fin1.eof() && !fin2.eof()) {
-            
-            if (x1 < y1) {
-                
-                fout2 << x1 << " ";
-                fin1 >> x2;
-                
-                if (!fin1.eof() && (x1 > x2)) {
-                    
-                    fout2 << y1 << " ";
-                    fin2 >> y2;
-                    
-                    while (!fin2.eof() && (y1 <= y2)) {
-                        
-                        y1 = y2;
-                        fout2 << y1 << " ";
-                        fin1 >> y2;
-                        
-                    }
-                    
-                    y1 = y2;
-                    
-                }
-                
-                x1 = x2;
-                
-            }
-            
-            else {
-                
-                fout2 << y1 << " ";
-                fin2 >> y2;
-                
-                if (!fin2.eof() && y1 > y2) {
-                    
-                    fout2 << x1 << " ";
-                    fin1 >> x2;
-                    
-                    while (!fin1.eof() && x1 <= x2) {
-                        
-                        x1 = x2;
-                        fout2 << x1 << " ";
-                        fin1 >> x2;
-                        
-                    }
-                    
-                    x1 = x2;
-                    
-                }
-                
-                y1 = y2;
-                
-            }
-            
-        }
-        
+        if (!fin1.eof() && !fin2.eof())
+            std::swap(fout1, fout2);
     }
 
     while (!fin1.eof()) {
