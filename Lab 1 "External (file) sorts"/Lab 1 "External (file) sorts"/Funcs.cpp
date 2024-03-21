@@ -147,39 +147,14 @@ void merge4d (const std::string fnameIn1, const std::string fnameIn2, const std:
 
 
     fin1.open(fnameIn1, std::ios_base::in);
-    
-    if (!fin1) {
-        
-        std::cout << "Can't open file: " << fnameIn1 << std::endl;
-        return;
-        
-    }
-
-    
     fin2.open(fnameIn2, std::ios_base::in);
-    
-    if (!fin2) {
-        
-        std::cout << "Can't open file: " << fnameIn2 << std::endl;
-        return;
-        
-    }
-
-    
     fout1.open(fnameOut1, std::ios_base::trunc);
-    
-    if (!fout1) {
-        
-        std::cout << "Can't open file: " << fnameOut1 << std::endl;
-        return;
-        
-    }
-
     fout2.open(fnameOut2, std::ios_base::trunc);
     
-    if (!fout2) {
+    if (!fin1 || !fin2 || !fout1 || !fout2) {
         
-        std::cout << "Can't open file: " << fnameOut2 << std::endl;
+        std::cout << std::endl << "Не получилось открыть файл" << std::endl;
+        
         return;
         
     }
@@ -355,6 +330,8 @@ void split4n (const std::string& fnameIn, const std::string& fnameOut1, const st
         x = y;
         
     }
+    
+    fout1 << x << " ";
 
     fin.close();
     fout1.close();
@@ -366,7 +343,136 @@ void split4n (const std::string& fnameIn, const std::string& fnameOut1, const st
 
 void merge4n (const std::string fnameIn1, const std::string fnameIn2, const std::string fnameOut1, const std::string fnameOut2) {
     
+    std::ifstream fin1;
+    std::ifstream fin2;
+    std::ofstream fout1;
+    std::ofstream fout2;
+
+
+    fin1.open(fnameIn1, std::ios_base::in);
+    fin2.open(fnameIn2, std::ios_base::in);
+    fout1.open(fnameOut1, std::ios_base::trunc);
+    fout2.open(fnameOut2, std::ios_base::trunc);
     
+    if (!fin1 || !fin2 || !fout1 || !fout2) {
+        
+        std::cout << std::endl << "Не получилось открыть файл" << std::endl;
+        
+        return;
+        
+    }
+
+    
+    int x1, y1, x2, y2;
+    
+    fin1 >> x1;
+    fin2 >> y1;
+    
+    while (!fin1.eof() && !fin2.eof()) {
+        
+        int i = 0;
+        int j = 0;
+        
+        while (!fin1.eof() && !fin2.eof()) {
+            
+            if (x1 < y1) {
+                
+                fout1 << x1 << " ";
+                fin1 >> x1;
+                i++;
+                
+            }
+            
+            else {
+                
+                fout1 << y1 << " ";
+                fin2 >> y1;
+                j++;
+                
+            }
+            
+        }
+
+        while (!fin1.eof()) {
+            
+            fout1 << x1 << " ";
+            fin1 >> x1;
+            i++;
+            
+        }
+
+        while (!fin2.eof()) {
+            
+            fout1 << y1 << " ";
+            fin2 >> y1;
+            j++;
+            
+        }
+
+        i = 0;
+        j = 0;
+
+        while (!fin1.eof() && !fin2.eof()) {
+            
+            if (x1 < y1) {
+                
+                fout2 << x1 << " ";
+                fin1 >> x1;
+                i++;
+                
+            }
+            
+            else {
+                
+                fout2 << y1 << " ";
+                fin2 >> y1;
+                j++;
+                
+            }
+            
+        }
+
+        while (!fin1.eof()) {
+            
+            fout2 << x1 << " ";
+            fin1 >> x1;
+            i++;
+            
+        }
+
+        while (!fin2.eof()) {
+            
+            fout2 << y1 << " ";
+            fin2 >> y1;
+            j++;
+            
+        }
+        
+    }
+
+    while (!fin1.eof()) {
+        
+        fout1 << x1 << " ";
+        fin1 >> x1;
+        
+    }
+
+    while (!fin2.eof()) {
+        
+        fout1 << y1 << " ";
+        fin2 >> y1;
+        
+    }
+
+    fin1.close();
+    fin2.close();
+    fout1.close();
+    fout2.close();
+
+    fout1.open(fnameIn1, std::ios_base::trunc);
+    fout2.open(fnameIn2, std::ios_base::trunc);
+    fout1.close();
+    fout2.close();
     
 }
 
