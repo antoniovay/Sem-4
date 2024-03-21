@@ -370,81 +370,117 @@ void merge4n (const std::string fnameIn1, const std::string fnameIn2, const std:
     
     while (!fin1.eof() && !fin2.eof()) {
         
-        int i = 0;
-        int j = 0;
         
         while (!fin1.eof() && !fin2.eof()) {
             
             if (x1 < y1) {
                 
                 fout1 << x1 << " ";
-                fin1 >> x1;
-                i++;
+                fin1 >> x2;
+                
+                if (!fin1.eof() && (x1 > x2)) {
+                    
+                    fout1 << y1 << " ";
+                    fin2 >> y2;
+                    
+                    while (!fin2.eof() && (y1 <= y2)) {
+                        
+                        y1 = y2;
+                        fout1 << y1 << " ";
+                        fin1 >> y2;
+                        
+                    }
+                    
+                    y1 = y2;
+                    
+                }
+                
+                x1 = x2;
                 
             }
             
             else {
                 
                 fout1 << y1 << " ";
-                fin2 >> y1;
-                j++;
+                fin2 >> y2;
+                
+                if (!fin2.eof() && y1 > y2) {
+                    
+                    fout1 << x1 << " ";
+                    fin1 >> x2;
+                    
+                    while (!fin1.eof() && x1 <= x2) {
+                        
+                        x1 = x2;
+                        fout1 << x1 << " ";
+                        fin1 >> x2;
+                        
+                    }
+                    
+                    x1 = x2;
+                    
+                }
+                
+                y1 = y2;
                 
             }
             
         }
-
-        while (!fin1.eof()) {
-            
-            fout1 << x1 << " ";
-            fin1 >> x1;
-            i++;
-            
-        }
-
-        while (!fin2.eof()) {
-            
-            fout1 << y1 << " ";
-            fin2 >> y1;
-            j++;
-            
-        }
-
-        i = 0;
-        j = 0;
-
+        
+        
         while (!fin1.eof() && !fin2.eof()) {
             
             if (x1 < y1) {
                 
                 fout2 << x1 << " ";
-                fin1 >> x1;
-                i++;
+                fin1 >> x2;
+                
+                if (!fin1.eof() && (x1 > x2)) {
+                    
+                    fout2 << y1 << " ";
+                    fin2 >> y2;
+                    
+                    while (!fin2.eof() && (y1 <= y2)) {
+                        
+                        y1 = y2;
+                        fout2 << y1 << " ";
+                        fin1 >> y2;
+                        
+                    }
+                    
+                    y1 = y2;
+                    
+                }
+                
+                x1 = x2;
                 
             }
             
             else {
                 
                 fout2 << y1 << " ";
-                fin2 >> y1;
-                j++;
+                fin2 >> y2;
+                
+                if (!fin2.eof() && y1 > y2) {
+                    
+                    fout2 << x1 << " ";
+                    fin1 >> x2;
+                    
+                    while (!fin1.eof() && x1 <= x2) {
+                        
+                        x1 = x2;
+                        fout2 << x1 << " ";
+                        fin1 >> x2;
+                        
+                    }
+                    
+                    x1 = x2;
+                    
+                }
+                
+                y1 = y2;
                 
             }
-            
-        }
-
-        while (!fin1.eof()) {
-            
-            fout2 << x1 << " ";
-            fin1 >> x1;
-            i++;
-            
-        }
-
-        while (!fin2.eof()) {
-            
-            fout2 << y1 << " ";
-            fin2 >> y1;
-            j++;
             
         }
         
