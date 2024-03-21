@@ -667,6 +667,11 @@ int createAndSortFile (const std::string& fileName, const int  numbersCount, con
     if (!isFileContainsSortedArray(fileName))
         
         return -2;
+    
+    if (!isFileContainsSortedArray("C.txt"))
+        
+        return -2;
+    
 
     return 1;
 }
