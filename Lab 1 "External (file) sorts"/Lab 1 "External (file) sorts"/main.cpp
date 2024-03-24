@@ -9,12 +9,14 @@
 
 #include "Funcs.hpp"
 
+enum SortTypes {Прямая_Сортировка = 0, Естественная_Сортировка = 1};
+
 
 
 int main()
 {
     
-    const int P = 1;     // Параметр, отвечающий за выбор алгоритма выбора отрезков (0 - прямое слияние, 1 - естественное слияние)
+    const int P = Естественная_Сортировка;
     
     std::string fileName = "A.txt";
     const int numbersCount = 10;

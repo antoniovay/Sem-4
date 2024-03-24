@@ -95,7 +95,7 @@ void split4d (const std::string& fnameIn, const std::string& fnameOut1, const st
     
     if (!fin || !fout1 || !fout2) {
         
-        std::cout << std::endl << "Не получилось открыть файл" << std::endl;
+        std::cerr << std::endl << "Не получилось открыть файл" << std::endl;
         
         return;
         
@@ -153,7 +153,7 @@ void merge4d (const std::string fnameIn1, const std::string fnameIn2, const std:
     
     if (!fin1 || !fin2 || !fout1 || !fout2) {
         
-        std::cout << std::endl << "Не получилось открыть файл" << std::endl;
+        std::cerr << std::endl << "Не получилось открыть файл" << std::endl;
         
         return;
         
