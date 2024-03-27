@@ -16,18 +16,25 @@ enum SortTypes {Прямая_Сортировка = 0, Естественная_
 int main()
 {
     
-    const int P = Естественная_Сортировка;
+    enum SortType {
+        
+        DirectMerge,
+        NaturalMerge
+        
+    };
+    
+    const SortType sortType = SortType::NaturalMerge;
     
     std::string fileName = "A.txt";
-    const int numbersCount = 10;
+    const int numbersCount = 1000;
     const int maxNumberValue = 100000;
     
-    switch (P) {
-        case 0:
+    switch (sortType ) {
+        case SortType::DirectMerge:
             std::cout << "-----// Прямое слияние //-----" << std::endl;
             break;
             
-        case 1:
+        case SortType::NaturalMerge:
             std::cout << "-----// Естественное слияние //-----" << std::endl;
             break;
             
@@ -37,7 +44,7 @@ int main()
 
     for (int i = 0; i < 10; i++) {
         
-        switch (createAndSortFile(fileName, numbersCount, maxNumberValue, P)) {
+        switch (createAndSortFile(fileName, numbersCount, maxNumberValue, sortType)) {
                 
             case 1:
                 std::cout << "Тест пройден." << std::endl;
