@@ -9,8 +9,6 @@
 
 #include "Funcs.hpp"
 
-enum SortTypes {Прямая_Сортировка = 0, Естественная_Сортировка = 1};
-
 
 
 int main()
