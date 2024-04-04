@@ -14,6 +14,8 @@
 #include <vector>
 #include <stack>
 
+#include "BinaryTreeTester.hpp"
+
 
 
 
@@ -23,7 +25,7 @@ class BinaryTree
 public:
     
     class Node;
-
+    class BinaryTreeTester;
     
 public:
     
@@ -31,7 +33,7 @@ public:
     BinaryTree(const BinaryTree &other);
     ~BinaryTree() { clear(); };
     
-    Node *getRoot();
+    Node *getRoot() const;
 
     void clear();
     void clear (Node* root);

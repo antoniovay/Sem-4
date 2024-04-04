@@ -21,7 +21,7 @@ BinaryTree::BinaryTree (const BinaryTree &other) {
 
 
 
-BinaryTree::Node *BinaryTree::getRoot() {
+BinaryTree::Node *BinaryTree::getRoot() const {
     
     return m_root;
     
@@ -279,76 +279,6 @@ bool BinaryTree::removeNode(const int key) {
     
     return removeNode(find(key));
     
-}
-
-
-
-namespace {
-    
-    struct Data {
-        BinaryTree::Node* target = nullptr;
-        BinaryTree::Node* nodeParent = nullptr;
-        BinaryTree::Node* replacementNode = nullptr;
-    };
-    
-}
-
-
-
-bool BinaryTree::removeD(Node* node) {
-    Data data = {};
-    
-    data.target = node;
-    if(!data.target) {
-        return false;
-    }
-    
-    data.nodeParent = findParent(m_root, data.target);
-    
-    auto finishRemove {
-        [this](Data& data) {
-            if(data.nodeParent->getLeftChild() == data.target) {
-                data.nodeParent->setLeftChild(nullptr);
-                delete data.target;
-                if(data.replacementNode)
-                    data.nodeParent->setLeftChild(data.replacementNode);
-            } else {
-                data.nodeParent->setRightChild(nullptr);
-                delete data.target;
-                if(data.replacementNode)
-                    data.nodeParent->setRightChild(data.replacementNode);
-            }
-        }
-    };
-    
-    if(data.nodeParent == data.target) {
-        clear();
-    } else {
-        if(data.target->getLeftChild() == nullptr && data.target->getRightChild() == nullptr) {
-            finishRemove(data);
-            
-        } else if(!data.target->getLeftChild()) {
-            data.replacementNode = data.target->getRightChild();
-            finishRemove(data);
-        } else if(!data.target->getRightChild()) {
-            data.replacementNode = data.target->getLeftChild();
-            finishRemove(data);
-            
-        } else {
-            data.replacementNode = findParent(data.target, nullptr);
-            Node* leafParent = findParent(data.target, data.replacementNode);
-            if(leafParent->getLeftChild() == data.replacementNode) {
-                leafParent->setLeftChild(nullptr);
-            } else {
-                leafParent->setRightChild(nullptr);
-            }
-            data.replacementNode->setLeftChild(data.target->getLeftChild());
-            data.replacementNode->setRightChild(data.target->getRightChild());
-            finishRemove(data);
-        }
-    }
-    
-    return true;
 }
 
 

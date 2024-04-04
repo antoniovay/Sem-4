@@ -48,7 +48,9 @@ int main() {
     
     tree.removeNode(20);
     tree.removeNode(100);
-//    
+    
+    std::cout << std::endl << std::endl;
+
     tree.printHorizontal();
     
 }
