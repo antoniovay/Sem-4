@@ -14,14 +14,7 @@
 int main()
 {
     
-    enum SortType {
-        
-        DirectMerge,
-        NaturalMerge
-        
-    };
-    
-    const SortType sortType = SortType::NaturalMerge;
+    const SortType sortType = SortType::DirectMerge;
     
     std::string fileName = "A.txt";
     const int numbersCount = 1000;

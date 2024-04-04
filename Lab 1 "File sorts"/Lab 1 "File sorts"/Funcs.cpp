@@ -602,9 +602,9 @@ std::string sorted (const std::string& fname1, const std::string& fname2, const 
 
 
 
-void sortFile (const std::string& fileName, const int p) {
+void sortFile (const std::string& fileName, const SortType p) {
     
-    if (p == 0) {
+    if (p == SortType::DirectMerge) {
         
         split4d (fileName, "C.txt", "D.txt");
         
@@ -621,14 +621,18 @@ void sortFile (const std::string& fileName, const int p) {
         
     }
     
-    if (p == 1) {
+    if (p == SortType::NaturalMerge) {
         
-        split4n (fileName, "C.txt", "D.txt");
+        split4d (fileName, "C.txt", "D.txt");
+        
+        int i = 1;
         
         while (!check(fileName, "B.txt", "C.txt", "D.txt")) {
             
-            merge4n ("C.txt", "D.txt", fileName, "B.txt");
-            merge4n (fileName, "B.txt", "C.txt", "D.txt");
+            merge4d ("C.txt", "D.txt", fileName, "B.txt", i);
+            i *= 2;
+            merge4d (fileName, "B.txt", "C.txt", "D.txt", i);
+            i *= 2;
             
         }
         
@@ -638,7 +642,7 @@ void sortFile (const std::string& fileName, const int p) {
 
 
 
-int createAndSortFile (const std::string& fileName, const int  numbersCount, const int maxNumberValue, const int p) {
+int createAndSortFile (const std::string& fileName, const int  numbersCount, const int maxNumberValue, const SortType p) {
     
     if (!createFileWithRandomNumbers("A.txt", numbersCount, maxNumberValue))
         

@@ -15,6 +15,13 @@
 
 
 
+enum SortType {
+    
+    DirectMerge,
+    NaturalMerge
+    
+};
+
 bool createFileWithRandomNumbers (const std::string& fileName, const int numbersCount, const int maxNumberValue);
 
 bool isFileContainsSortedArray (const std::string& fileName);
@@ -36,6 +43,6 @@ void print (const std::string& fileName);
 
 std::string sorted (const std::string& fname1, const std::string& fname2, const std::string& fname3, const std::string& fname4);
 
-void sortFile (const std::string& fileName, const int p);
+void sortFile (const std::string& fileName, const SortType p);
 
-int createAndSortFile (const std::string& fileName, const int  numbersCount, const int maxNumberValue, const int p);
+int createAndSortFile (const std::string& fileName, const int  numbersCount, const int maxNumberValue, const SortType p);
