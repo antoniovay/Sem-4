@@ -8,21 +8,24 @@
 
 
 #include "BinaryTree.hpp"
-
+#include "BinaryTreeTester.hpp"
 
 
 int main() {
-    srand((unsigned)time(NULL));
+    
+    //srand((unsigned)time(NULL));
     BinaryTree tree;
+    std::vector<int> nums;
     
-    tree.addNode(10);
-    tree.addNode(50);
-    tree.addNode(20);
-    tree.addNode(5);
-    tree.addNode(100);
+    for (int i = 0; i < 10; i++) {
+        nums.push_back(i);
+        tree.add(i);
+    }
     
     
-    tree.printHorizontal();
+    std::cout << "Tree:" << std::endl;
+    tree.printVertical();
+    std::cout << "Nodes: " << tree.getNodesCount() << std::endl << std::endl;
     
 //    std::cout << tree.max() << " " << tree.min() << std::endl;
 //    
@@ -45,13 +48,21 @@ int main() {
 //    std::cout << std::endl;
     
     
-    
-    tree.removeNode(20);
-    tree.removeNode(100);
-    
-    std::cout << std::endl << std::endl;
 
-    tree.printHorizontal();
+//    for (int i = 0; i < 10; i++) {
+//        
+//        tree.remove(i);
+//        std::cout << "Tree:" << std::endl;
+//        tree.printVertical();
+//        std::cout << "Nodes: " << tree.getNodesCount() << std::endl << std::endl;
+//        
+//    }
+
+    
+    
+    BinaryTreeTester tester(true, false);
+    tester.setRemoveCheckEnabled(true);
+    tester.test(10);
     
 }
 

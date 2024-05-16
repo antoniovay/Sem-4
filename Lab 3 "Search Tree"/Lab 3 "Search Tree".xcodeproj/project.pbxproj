@@ -7,13 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A00E4D062BBE5042002F8780 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A00E4D052BBE5042002F8780 /* main.cpp */; };
-		A00E4D0E2BBE5057002F8780 /* BinaryTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A00E4D0C2BBE5057002F8780 /* BinaryTree.cpp */; };
-		A0EEA5092BBE8B3D003A8DAB /* BinaryTreeTester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0EEA5072BBE8B3D003A8DAB /* BinaryTreeTester.cpp */; };
+		A0E0E16A2BF5436F000DB5B2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0E0E1692BF5436F000DB5B2 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A00E4D002BBE5042002F8780 /* CopyFiles */ = {
+		A0E0E1642BF5436F000DB5B2 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -25,16 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A00E4D022BBE5042002F8780 /* Lab 2 "BinaryTree" */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Lab 2 \"BinaryTree\""; sourceTree = BUILT_PRODUCTS_DIR; };
-		A00E4D052BBE5042002F8780 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		A00E4D0C2BBE5057002F8780 /* BinaryTree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryTree.cpp; sourceTree = "<group>"; };
-		A00E4D0D2BBE5057002F8780 /* BinaryTree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BinaryTree.hpp; sourceTree = "<group>"; };
-		A0EEA5072BBE8B3D003A8DAB /* BinaryTreeTester.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryTreeTester.cpp; sourceTree = "<group>"; };
-		A0EEA5082BBE8B3D003A8DAB /* BinaryTreeTester.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BinaryTreeTester.hpp; sourceTree = "<group>"; };
+		A0E0E1662BF5436F000DB5B2 /* Lab 3 "Search Tree" */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Lab 3 \"Search Tree\""; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0E0E1692BF5436F000DB5B2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A00E4CFF2BBE5042002F8780 /* Frameworks */ = {
+		A0E0E1632BF5436F000DB5B2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -44,69 +38,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A00E4CF92BBE5042002F8780 = {
+		A0E0E15D2BF5436F000DB5B2 = {
 			isa = PBXGroup;
 			children = (
-				A00E4D042BBE5042002F8780 /* Lab 2 "BinaryTree" */,
-				A00E4D032BBE5042002F8780 /* Products */,
+				A0E0E1682BF5436F000DB5B2 /* Lab 3 "Search Tree" */,
+				A0E0E1672BF5436F000DB5B2 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		A00E4D032BBE5042002F8780 /* Products */ = {
+		A0E0E1672BF5436F000DB5B2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A00E4D022BBE5042002F8780 /* Lab 2 "BinaryTree" */,
+				A0E0E1662BF5436F000DB5B2 /* Lab 3 "Search Tree" */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A00E4D042BBE5042002F8780 /* Lab 2 "BinaryTree" */ = {
+		A0E0E1682BF5436F000DB5B2 /* Lab 3 "Search Tree" */ = {
 			isa = PBXGroup;
 			children = (
-				A00E4D052BBE5042002F8780 /* main.cpp */,
-				A00E4D0C2BBE5057002F8780 /* BinaryTree.cpp */,
-				A00E4D0D2BBE5057002F8780 /* BinaryTree.hpp */,
-				A0EEA5072BBE8B3D003A8DAB /* BinaryTreeTester.cpp */,
-				A0EEA5082BBE8B3D003A8DAB /* BinaryTreeTester.hpp */,
+				A0E0E1692BF5436F000DB5B2 /* main.cpp */,
 			);
-			path = "Lab 2 \"BinaryTree\"";
+			path = "Lab 3 \"Search Tree\"";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A00E4D012BBE5042002F8780 /* Lab 2 "BinaryTree" */ = {
+		A0E0E1652BF5436F000DB5B2 /* Lab 3 "Search Tree" */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A00E4D092BBE5042002F8780 /* Build configuration list for PBXNativeTarget "Lab 2 "BinaryTree"" */;
+			buildConfigurationList = A0E0E16D2BF5436F000DB5B2 /* Build configuration list for PBXNativeTarget "Lab 3 "Search Tree"" */;
 			buildPhases = (
-				A00E4CFE2BBE5042002F8780 /* Sources */,
-				A00E4CFF2BBE5042002F8780 /* Frameworks */,
-				A00E4D002BBE5042002F8780 /* CopyFiles */,
+				A0E0E1622BF5436F000DB5B2 /* Sources */,
+				A0E0E1632BF5436F000DB5B2 /* Frameworks */,
+				A0E0E1642BF5436F000DB5B2 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Lab 2 \"BinaryTree\"";
-			productName = "Lab 2 \"BinaryTree\"";
-			productReference = A00E4D022BBE5042002F8780 /* Lab 2 "BinaryTree" */;
+			name = "Lab 3 \"Search Tree\"";
+			productName = "Lab 3 \"Search Tree\"";
+			productReference = A0E0E1662BF5436F000DB5B2 /* Lab 3 "Search Tree" */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A00E4CFA2BBE5042002F8780 /* Project object */ = {
+		A0E0E15E2BF5436F000DB5B2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastUpgradeCheck = 1530;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
-					A00E4D012BBE5042002F8780 = {
-						CreatedOnToolsVersion = 15.3;
+					A0E0E1652BF5436F000DB5B2 = {
+						CreatedOnToolsVersion = 15.4;
 					};
 				};
 			};
-			buildConfigurationList = A00E4CFD2BBE5042002F8780 /* Build configuration list for PBXProject "Lab 2 "BinaryTree"" */;
+			buildConfigurationList = A0E0E1612BF5436F000DB5B2 /* Build configuration list for PBXProject "Lab 3 "Search Tree"" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -114,31 +104,29 @@
 				en,
 				Base,
 			);
-			mainGroup = A00E4CF92BBE5042002F8780;
-			productRefGroup = A00E4D032BBE5042002F8780 /* Products */;
+			mainGroup = A0E0E15D2BF5436F000DB5B2;
+			productRefGroup = A0E0E1672BF5436F000DB5B2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A00E4D012BBE5042002F8780 /* Lab 2 "BinaryTree" */,
+				A0E0E1652BF5436F000DB5B2 /* Lab 3 "Search Tree" */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A00E4CFE2BBE5042002F8780 /* Sources */ = {
+		A0E0E1622BF5436F000DB5B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A00E4D0E2BBE5057002F8780 /* BinaryTree.cpp in Sources */,
-				A00E4D062BBE5042002F8780 /* main.cpp in Sources */,
-				A0EEA5092BBE8B3D003A8DAB /* BinaryTreeTester.cpp in Sources */,
+				A0E0E16A2BF5436F000DB5B2 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		A00E4D072BBE5042002F8780 /* Debug */ = {
+		A0E0E16B2BF5436F000DB5B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -199,7 +187,7 @@
 			};
 			name = Debug;
 		};
-		A00E4D082BBE5042002F8780 /* Release */ = {
+		A0E0E16C2BF5436F000DB5B2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -253,7 +241,7 @@
 			};
 			name = Release;
 		};
-		A00E4D0A2BBE5042002F8780 /* Debug */ = {
+		A0E0E16E2BF5436F000DB5B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -261,7 +249,7 @@
 			};
 			name = Debug;
 		};
-		A00E4D0B2BBE5042002F8780 /* Release */ = {
+		A0E0E16F2BF5436F000DB5B2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -272,25 +260,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A00E4CFD2BBE5042002F8780 /* Build configuration list for PBXProject "Lab 2 "BinaryTree"" */ = {
+		A0E0E1612BF5436F000DB5B2 /* Build configuration list for PBXProject "Lab 3 "Search Tree"" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A00E4D072BBE5042002F8780 /* Debug */,
-				A00E4D082BBE5042002F8780 /* Release */,
+				A0E0E16B2BF5436F000DB5B2 /* Debug */,
+				A0E0E16C2BF5436F000DB5B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A00E4D092BBE5042002F8780 /* Build configuration list for PBXNativeTarget "Lab 2 "BinaryTree"" */ = {
+		A0E0E16D2BF5436F000DB5B2 /* Build configuration list for PBXNativeTarget "Lab 3 "Search Tree"" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A00E4D0A2BBE5042002F8780 /* Debug */,
-				A00E4D0B2BBE5042002F8780 /* Release */,
+				A0E0E16E2BF5436F000DB5B2 /* Debug */,
+				A0E0E16F2BF5436F000DB5B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = A00E4CFA2BBE5042002F8780 /* Project object */;
+	rootObject = A0E0E15E2BF5436F000DB5B2 /* Project object */;
 }
