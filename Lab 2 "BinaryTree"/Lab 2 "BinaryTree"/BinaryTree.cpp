@@ -1,6 +1,6 @@
 //
 //  Binary_Tree.cpp
-//  BinTree
+//  Lab 2 "Binary Tree"
 //
 //  Created by Antony Miroshnichenko on 14.03.2024.
 //
@@ -290,7 +290,7 @@ int BinaryTree::min(Node *root) const {
 
 
 
-BinaryTree::Node *BinaryTree::add (const int key) {
+BinaryTree::Node *BinaryTree::addNode (const int key) {
     
     if (m_root) {
         
@@ -305,6 +305,20 @@ BinaryTree::Node *BinaryTree::add (const int key) {
     }
     
 }
+
+
+
+bool BinaryTree::add(const int key) {
+    
+    Node *node = addNode(key);
+    
+    if (node)
+        return true;
+    
+    return false;;
+    
+}
+
 
 
 /*

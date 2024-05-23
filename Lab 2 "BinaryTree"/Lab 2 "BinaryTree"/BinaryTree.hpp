@@ -1,6 +1,6 @@
 //
 //  Binary_Tree.hpp
-//  BinTree
+//  Lab 2 "Binary Tree"
 //
 //  Created by Antony Miroshnichenko on 14.03.2024.
 //
@@ -55,7 +55,8 @@ public:
     int max(Node *root) const;
     int min(Node *root) const;
     
-    Node *add(const int key);
+    Node *addNode(const int key);
+    virtual bool add(const int key);
     
 //    bool remove(const int key);
 //    bool removeD(Node* node);

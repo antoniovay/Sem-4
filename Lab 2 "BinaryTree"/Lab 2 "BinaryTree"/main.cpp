@@ -6,7 +6,7 @@
 //
 
 
-
+#include <iostream>
 #include "BinaryTree.hpp"
 #include "BinaryTreeTester.hpp"
 

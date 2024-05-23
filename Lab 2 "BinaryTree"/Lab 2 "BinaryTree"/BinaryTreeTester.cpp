@@ -278,6 +278,7 @@ void BinaryTreeTester::check_assign(const BinaryTree *first,
     }
 }
 
+
 BinaryTreeTester::TreeNodes BinaryTreeTester::treeNodes(const BinaryTree *tree)
 {
     TreeNodes nodes;
@@ -295,6 +296,23 @@ BinaryTreeTester::TreeNodes BinaryTreeTester::treeNodes(const BinaryTree *tree)
     }
     
     return nodes;
+}
+
+std::vector<int> BinaryTreeTester::generateKeys()
+{
+    std::vector<int> orderedKeys;
+    for (int i = 0; i < m_maxSize; ++i) {
+        orderedKeys.push_back(i);
+    }
+
+    std::vector<int> keys;
+    while (!orderedKeys.empty()) {
+        int i = rand() % orderedKeys.size();
+        keys.push_back(orderedKeys[i]);
+        orderedKeys.erase(orderedKeys.begin() + i);
+    }
+
+    return keys;
 }
 
 void BinaryTreeTester::height()
