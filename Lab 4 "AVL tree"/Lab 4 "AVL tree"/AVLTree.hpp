@@ -2,12 +2,35 @@
 //  AVLTree.hpp
 //  Lab 4 "AVL tree"
 //
-//  Created by Antony Miroshnichenko on 23.05.2024.
+//  Created by Antony Miroshnichenko on 25.04.2024.
 //
 
-#ifndef AVLTree_hpp
-#define AVLTree_hpp
 
-#include <stdio.h>
 
-#endif /* AVLTree_hpp */
+#pragma once
+
+
+#include "SearchTree.hpp"
+
+class AVLTree: public SearchTree
+{
+    
+protected:
+    bool removeNode(Node* toDelete, Node* parent) override;
+    
+private:
+    void balance(Node* root, Node* parent);
+
+    
+public:
+    AVLTree();
+    AVLTree(const AVLTree& other);
+    ~AVLTree();
+
+    AVLTree copyTree(int index);
+
+    bool add(int key) override;
+
+    AVLTree& operator = (const AVLTree& other) = default;
+
+};
