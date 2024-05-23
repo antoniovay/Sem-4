@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A057D1C12BF5EA14006D9626 /* SearchTreeTester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A057D1BF2BF5EA14006D9626 /* SearchTreeTester.cpp */; };
+		A074D1BD2BFB240A00385DB2 /* BinaryTreeTester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A074D1BB2BFB240A00385DB2 /* BinaryTreeTester.cpp */; };
 		A0E0E16A2BF5436F000DB5B2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0E0E1692BF5436F000DB5B2 /* main.cpp */; };
 		A0E0E1722BF543B0000DB5B2 /* SearchTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0E0E1702BF543B0000DB5B2 /* SearchTree.cpp */; };
 		A0E0E1752BF5441B000DB5B2 /* BinaryTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0E0E1742BF5441B000DB5B2 /* BinaryTree.cpp */; };
@@ -28,6 +29,8 @@
 /* Begin PBXFileReference section */
 		A057D1BF2BF5EA14006D9626 /* SearchTreeTester.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SearchTreeTester.cpp; sourceTree = "<group>"; };
 		A057D1C02BF5EA14006D9626 /* SearchTreeTester.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SearchTreeTester.hpp; sourceTree = "<group>"; };
+		A074D1BB2BFB240A00385DB2 /* BinaryTreeTester.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BinaryTreeTester.cpp; path = "../../Lab 2 \"BinaryTree\"/Lab 2 \"BinaryTree\"/BinaryTreeTester.cpp"; sourceTree = "<group>"; };
+		A074D1BC2BFB240A00385DB2 /* BinaryTreeTester.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = BinaryTreeTester.hpp; path = "../../Lab 2 \"BinaryTree\"/Lab 2 \"BinaryTree\"/BinaryTreeTester.hpp"; sourceTree = "<group>"; };
 		A0E0E1662BF5436F000DB5B2 /* Lab 3 "Search Tree" */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Lab 3 \"Search Tree\""; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0E0E1692BF5436F000DB5B2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A0E0E1702BF543B0000DB5B2 /* SearchTree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SearchTree.cpp; sourceTree = "<group>"; };
@@ -73,6 +76,8 @@
 				A0E0E1732BF5441B000DB5B2 /* BinaryTree.hpp */,
 				A057D1BF2BF5EA14006D9626 /* SearchTreeTester.cpp */,
 				A057D1C02BF5EA14006D9626 /* SearchTreeTester.hpp */,
+				A074D1BB2BFB240A00385DB2 /* BinaryTreeTester.cpp */,
+				A074D1BC2BFB240A00385DB2 /* BinaryTreeTester.hpp */,
 			);
 			path = "Lab 3 \"Search Tree\"";
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0E0E16A2BF5436F000DB5B2 /* main.cpp in Sources */,
+				A074D1BD2BFB240A00385DB2 /* BinaryTreeTester.cpp in Sources */,
 				A0E0E1722BF543B0000DB5B2 /* SearchTree.cpp in Sources */,
 				A057D1C12BF5EA14006D9626 /* SearchTreeTester.cpp in Sources */,
 				A0E0E1752BF5441B000DB5B2 /* BinaryTree.cpp in Sources */,

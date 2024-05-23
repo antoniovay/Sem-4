@@ -7,14 +7,13 @@
 
 #include "SearchTree.hpp"
 
-BinaryTree::Node* SearchTree::find_by_key(int key)
-{
+BinaryTree::Node* SearchTree::find_by_key(int key) {
+    
     if (m_root == nullptr)
         return nullptr;
 
     Node* temp = m_root;
-    while ((temp->left() && key < temp->key()) || (temp->right() && key > temp->key()))
-    {
+    while ((temp->left() && key < temp->key()) || (temp->right() && key > temp->key())) {
         if (key < temp->key())
             temp = temp->left();
         else
@@ -25,16 +24,16 @@ BinaryTree::Node* SearchTree::find_by_key(int key)
         return temp;
     else
         return nullptr;
+    
 }
 
-BinaryTree::Node* SearchTree::max(Node* root)
-{
+BinaryTree::Node* SearchTree::max(Node* root) {
+    
     if (root == nullptr)
         return nullptr;
 
     Node* temp = root;
-    while (temp->right())
-    {
+    while (temp->right()) {
         temp = temp->right();
     }
 
@@ -47,8 +46,7 @@ BinaryTree::Node* SearchTree::min(Node* root)
         return nullptr;
 
     Node* temp = root;
-    while (temp->left())
-    {
+    while (temp->left()) {
         temp = temp->left();
     }
 
@@ -57,8 +55,7 @@ BinaryTree::Node* SearchTree::min(Node* root)
 
 
 
-bool SearchTree::removeNode(Node* toDelete, Node* parent)
-{
+bool SearchTree::removeNode(Node* toDelete, Node* parent) {
     if (toDelete == nullptr)
         return false;
 
