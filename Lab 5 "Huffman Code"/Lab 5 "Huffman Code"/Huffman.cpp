@@ -15,6 +15,34 @@
 
 void Huffman::build(std::string filenameIn)
 {
+    _delete(m_root);
+    
+    char c;
+    unsigned char symbols[256];
+    std::ifstream fin;
+    fin.open(filenameIn);
+    
+    if (!fin.is_open())
+        return;
+    
+    for (int i = 0; i < 256; i++)
+        symbols[i] = 0;
+
+    while (fin.get(c))
+        symbols[c]++;
+
+    fin.close();
+    
+    std::vector<Node*> nodes;
+    
+    for (int i = 0; i < 256; i++)
+        if (symbols[i]) {
+            Node* temp = new Node(i, symbols[i]);
+            nodes.push_back(temp);
+        }
+    
+    
+    
     
 }
 
