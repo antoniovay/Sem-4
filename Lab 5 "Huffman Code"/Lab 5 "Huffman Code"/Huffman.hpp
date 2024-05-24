@@ -14,6 +14,9 @@
 
 class Huffman
 {
+    
+public:
+    
     class Node;
     
 public:
@@ -26,10 +29,11 @@ public:
     bool decode(std::string filenameIn, std::string filenameOut);
 
 private:
-    
-    Node* m_root;
 
     void _delete(Node* root);
+    
+    Node* m_root;
+    
 };
 
 

@@ -30,7 +30,11 @@ bool Huffman::decode(std::string filenameIn, std::string filenameOut)
 
 void Huffman::_delete(Node* root)
 {
-    
+    if (root) {
+        _delete(root->left());
+        _delete(root->right());
+        delete root;
+    }
 }
 
 
