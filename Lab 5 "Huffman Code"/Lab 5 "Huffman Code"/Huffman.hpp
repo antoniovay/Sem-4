@@ -5,7 +5,8 @@
 //  Created by Antony Miroshnichenko on 23.05.2024.
 //
 
-#pragma once
+#ifndef Huffman_hpp
+#define Binary_Tree_hpp
 
 #include <string>
 
@@ -38,7 +39,7 @@ private:
 
 
 
-class Node
+class Huffman::Node
 {
 public:
     
@@ -61,3 +62,6 @@ private:
     Node* m_left;
     Node* m_right;
 };
+
+
+#endif /* Huffman_hpp */
