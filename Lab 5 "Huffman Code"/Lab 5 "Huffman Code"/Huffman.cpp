@@ -29,7 +29,7 @@ void Huffman::build(std::string fnameIn)
         symbols[i] = 0;
 
     while (fin.get(c))
-        symbols[c]++;
+        symbols[(unsigned char)c]++;
 
     fin.close();
     
@@ -37,7 +37,7 @@ void Huffman::build(std::string fnameIn)
     
     for (int i = 0; i < 256; i++)
         if (symbols[i]) {
-            Node* temp = new Node(i, symbols[i]);
+            Node* temp = new Node((unsigned char)i, symbols[i]);
             nodes.push_back(temp);
         }
     

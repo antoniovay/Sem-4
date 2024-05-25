@@ -7,6 +7,14 @@
 
 #include <iostream>
 
+#include "Huffman.hpp"
+
 int main() {
+    
+    Huffman code;
+
+    std::cout << code.encode("input.txt", "output.txt") << std::endl;
+
+    code.decode("output.txt", "decode.txt");
     
 }
