@@ -96,6 +96,8 @@ public:
     bool inTable(int key);
     void changeFunction(IHashFunction *newFunction);
     
+    friend std::ostream &operator <<(std::ostream &stream, const Hash &object);
+    
 private:
     tableElement* m_table = nullptr;
     int m_size;
@@ -110,3 +112,19 @@ struct Hash::tableElement
     bool hasValue = false;
     tableElement* next = nullptr;
 };
+
+
+
+std::ostream &operator <<(std::ostream &stream, const Hash &object) {
+    for (int i = 0; i < object.m_size; i++) {
+        if (object.m_table[i].hasValue)
+            stream << i << "\t" << 
+            &object.m_table[i] << "\t" <<
+            object.m_table[i].next << "\t" <<
+            object.m_table[i].key << "\t" <<
+            object.m_table[i].data << std::endl;
+        else
+            stream << i << "\tFree" << std::endl;
+    }
+    return stream;
+}
