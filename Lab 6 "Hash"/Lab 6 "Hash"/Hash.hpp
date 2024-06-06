@@ -77,6 +77,10 @@ public:
 
 
 
+
+
+
+
 class Hash
 {
 public:
@@ -90,13 +94,14 @@ public:
     ~Hash();
     
     Hash operator =(const Hash &other);
-    std::string &operator [](const int key);
     
     bool add(int key, std::string string);
     bool remove(int key);
     
     bool inTable(int key);
     void changeFunction(IHashFunction *newFunction);
+    
+    void resize(const int size);
     
     friend std::ostream &operator <<(std::ostream &stream, const Hash &object);
     

@@ -149,6 +149,15 @@ void Hash::changeFunction(IHashFunction *newFunction) {
     m_table = newTable;
 }
 
+void Hash::resize(const int size) {
+    std::vector<Pair> oldData(size);
+    std::swap(oldData, data);
+
+    for(int i = 0; i < oldData.size(); i++)
+        if(oldData[i].value() != "")
+            add(oldData[i].key(), oldData[i].value());
+}
+
 
 
 
