@@ -9,7 +9,19 @@
 
 #include "Hash.hpp"
 
-int main(int argc, const char * argv[]) 
+int main()
 {
-   
+    Hash table(5);
+
+    table.add(88, "raz");
+    table.add(72, "dva");
+    table.add(11, "tri");
+    table.add(59, "chetyire");
+    table.add(60, "pyat");
+    
+    table.remove(59);
+    
+    table.changeFunction(&function2);
+    
+    table.add(59, "desyat");
 }
