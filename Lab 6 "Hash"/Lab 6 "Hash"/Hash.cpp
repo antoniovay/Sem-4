@@ -148,3 +148,35 @@ void Hash::changeFunction(IHashFunction *newFunction) {
     delete [] m_table;
     m_table = newTable;
 }
+
+
+
+
+
+int Hash::Pair::key() const {
+    return m_key;
+}
+
+std::string Hash::Pair::value() const {
+    return m_value;
+}
+
+void Hash::Pair::setKey(const int key) {
+    m_key = key;
+}
+
+void Hash::Pair::setValue(const std::string& value) {
+    m_value = value;
+}
+
+Hash::Pair* Hash::Pair::next() {
+    return m_next;
+}
+
+const Hash::Pair* Hash::Pair::next() const {
+    return m_next;
+}
+
+void Hash::Pair::setNext(Pair* next) {
+    m_next = next;
+}

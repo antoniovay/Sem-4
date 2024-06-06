@@ -81,6 +81,7 @@ class Hash
 {
 public:
     class tableElement;
+    class Pair;
     
 public:
     Hash();
@@ -89,6 +90,7 @@ public:
     ~Hash();
     
     Hash operator =(const Hash &other);
+    std::string &operator [](const int key);
     
     bool add(int key, std::string string);
     bool remove(int key);
@@ -111,6 +113,36 @@ struct Hash::tableElement
     std::string data = "";
     bool hasValue = false;
     tableElement* next = nullptr;
+};
+
+
+
+class Hash::Pair
+{
+    friend class Hash;
+    
+public:
+    Pair(const int key = {}, const std::string& value = {}, Pair* next = nullptr)
+        : m_key(key), m_value(value), m_next(next)
+    {}
+
+    ~Pair() = default;
+
+    int key() const;
+    std::string value() const;
+
+    void setKey(const int key);
+    void setValue(const std::string& value);
+
+    Pair* next();
+    const Pair* next() const;
+    void setNext(Pair* next);
+
+private:
+    int m_key = 0;
+    std::string m_value = "";
+
+    Pair* m_next = nullptr;
 };
 
 
