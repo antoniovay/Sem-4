@@ -15,13 +15,22 @@ int main()
 
     table.add(88, "raz");
     table.add(72, "dva");
-    table.add(11, "tri");
+    table.add(22, "tri");
     table.add(59, "chetyire");
-    table.add(60, "pyat");
+    table.add(61, "pyat");
+    //table.add(22, "qwerty");
+    
+    std::cout << table << std::endl;
     
     table.remove(59);
     
-    table.changeFunction(&function2);
+    std::cout << table << std::endl;
+    
+    table.changeFunction(new SecondHashFunction);
     
     table.add(59, "desyat");
+    
+    std::cout << table << std::endl;
+    
+    return 0;
 }

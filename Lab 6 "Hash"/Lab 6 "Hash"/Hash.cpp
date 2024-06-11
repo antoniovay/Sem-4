@@ -7,16 +7,14 @@
 
 #include "Hash.hpp"
 
-Hash::Hash() {
-    m_size = 1;
-    m_table = new tableElement[1];
-    m_function = &function1;
-}
+Hash::Hash()
+: Hash(1)
+{}
 
 Hash::Hash(int n) {
     m_size = n;
     m_table = new tableElement[m_size];
-    m_function = &function1;
+    m_function = new FirstHashFunction;
 }
 
 Hash::Hash(const Hash &other) {
@@ -33,7 +31,7 @@ Hash::~Hash() {
     if (m_table)
         delete [] m_table;
     if (m_function)
-        delete [] m_function;
+        delete m_function;
 }
 
 Hash Hash::operator =(const Hash &other) {
@@ -149,43 +147,57 @@ void Hash::changeFunction(IHashFunction *newFunction) {
     m_table = newTable;
 }
 
-void Hash::resize(const int size) {
-    std::vector<Pair> oldData(size);
-    std::swap(oldData, data);
-
-    for(int i = 0; i < oldData.size(); i++)
-        if(oldData[i].value() != "")
-            add(oldData[i].key(), oldData[i].value());
-}
-
-
+//void Hash::resize(const int size) {
+//    std::vector<Pair> oldData(size);
+//    std::swap(oldData, data);
+//
+//    for(int i = 0; i < oldData.size(); i++)
+//        if(oldData[i].value() != "")
+//            add(oldData[i].key(), oldData[i].value());
+//}
 
 
 
-int Hash::Pair::key() const {
-    return m_key;
-}
 
-std::string Hash::Pair::value() const {
-    return m_value;
-}
 
-void Hash::Pair::setKey(const int key) {
-    m_key = key;
-}
+//int Hash::Pair::key() const {
+//    return m_key;
+//}
+//
+//std::string Hash::Pair::value() const {
+//    return m_value;
+//}
+//
+//void Hash::Pair::setKey(const int key) {
+//    m_key = key;
+//}
+//
+//void Hash::Pair::setValue(const std::string& value) {
+//    m_value = value;
+//}
+//
+//Hash::Pair* Hash::Pair::next() {
+//    return m_next;
+//}
+//
+//const Hash::Pair* Hash::Pair::next() const {
+//    return m_next;
+//}
+//
+//void Hash::Pair::setNext(Pair* next) {
+//    m_next = next;
+//}
 
-void Hash::Pair::setValue(const std::string& value) {
-    m_value = value;
-}
-
-Hash::Pair* Hash::Pair::next() {
-    return m_next;
-}
-
-const Hash::Pair* Hash::Pair::next() const {
-    return m_next;
-}
-
-void Hash::Pair::setNext(Pair* next) {
-    m_next = next;
+std::ostream &operator <<(std::ostream &stream, const Hash &object) {
+    for (int i = 0; i < object.m_size; i++) {
+        if (object.m_table[i].hasValue)
+            stream << i << "\t" <<
+            &object.m_table[i] << "\t" <<
+            object.m_table[i].next << "\t" <<
+            object.m_table[i].key << "\t" <<
+            object.m_table[i].data << std::endl;
+        else
+            stream << i << "\tFree" << std::endl;
+    }
+    return stream;
 }

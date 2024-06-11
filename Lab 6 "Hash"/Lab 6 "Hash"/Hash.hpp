@@ -16,6 +16,7 @@ class IHashFunction
 {
 public:
     virtual int operator()(int, int, int) = 0;
+    virtual IHashFunction *clone() const {return nullptr;}
 };
 
 
@@ -35,8 +36,8 @@ public:
 
 private:
     const int c = 5;
-    const int d = 3;
-} function1;
+    const int d = 7;
+};
 
 
 
@@ -55,7 +56,7 @@ public:
 
 private:
     const double a = 0.6180339887498948;
-} function2;
+};
 
 
 
@@ -73,7 +74,7 @@ public:
         else return 0;
     }
     
-} function3;
+};
 
 
 
@@ -84,8 +85,8 @@ public:
 class Hash
 {
 public:
-    class tableElement;
-    class Pair;
+    struct tableElement;
+//    class Pair;
     
 public:
     Hash();
@@ -122,46 +123,34 @@ struct Hash::tableElement
 
 
 
-class Hash::Pair
-{
-    friend class Hash;
-    
-public:
-    Pair(const int key = {}, const std::string& value = {}, Pair* next = nullptr)
-        : m_key(key), m_value(value), m_next(next)
-    {}
+//class Hash::Pair
+//{
+//    friend class Hash;
+//    
+//public:
+//    Pair(const int key = {}, const std::string& value = {}, Pair* next = nullptr)
+//        : m_key(key), m_value(value), m_next(next)
+//    {}
+//
+//    ~Pair() = default;
+//
+//    int key() const;
+//    std::string value() const;
+//
+//    void setKey(const int key);
+//    void setValue(const std::string& value);
+//
+//    Pair* next();
+//    const Pair* next() const;
+//    void setNext(Pair* next);
+//
+//private:
+//    int m_key = 0;
+//    std::string m_value = "";
+//
+//    Pair* m_next = nullptr;
+//};
 
-    ~Pair() = default;
-
-    int key() const;
-    std::string value() const;
-
-    void setKey(const int key);
-    void setValue(const std::string& value);
-
-    Pair* next();
-    const Pair* next() const;
-    void setNext(Pair* next);
-
-private:
-    int m_key = 0;
-    std::string m_value = "";
-
-    Pair* m_next = nullptr;
-};
 
 
 
-std::ostream &operator <<(std::ostream &stream, const Hash &object) {
-    for (int i = 0; i < object.m_size; i++) {
-        if (object.m_table[i].hasValue)
-            stream << i << "\t" << 
-            &object.m_table[i] << "\t" <<
-            object.m_table[i].next << "\t" <<
-            object.m_table[i].key << "\t" <<
-            object.m_table[i].data << std::endl;
-        else
-            stream << i << "\tFree" << std::endl;
-    }
-    return stream;
-}
