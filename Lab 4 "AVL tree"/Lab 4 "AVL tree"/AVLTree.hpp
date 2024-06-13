@@ -20,6 +20,7 @@ protected:
     
 private:
     void balance(Node* root, Node* parent);
+    void balance2(Node* root, Node* parent);
 
     
 public:

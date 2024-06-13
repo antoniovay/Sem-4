@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A034AB212C19FB89008BD7EA /* AVLTreeTester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A034AB202C19FB89008BD7EA /* AVLTreeTester.cpp */; };
 		A03CF1CF2BFE90C6001917DD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A03CF1CE2BFE90C6001917DD /* main.cpp */; };
 		A03CF1D72BFE90DB001917DD /* AVLTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A03CF1D52BFE90DB001917DD /* AVLTree.cpp */; };
 		A03CF1DA2BFE91DD001917DD /* SearchTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A03CF1D92BFE91DD001917DD /* SearchTree.cpp */; };
@@ -26,6 +27,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A034AB1F2C19FB89008BD7EA /* AVLTreeTester.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AVLTreeTester.hpp; sourceTree = "<group>"; };
+		A034AB202C19FB89008BD7EA /* AVLTreeTester.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AVLTreeTester.cpp; sourceTree = "<group>"; };
 		A03CF1CB2BFE90C6001917DD /* Lab 4 "AVL tree" */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Lab 4 \"AVL tree\""; sourceTree = BUILT_PRODUCTS_DIR; };
 		A03CF1CE2BFE90C6001917DD /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A03CF1D52BFE90DB001917DD /* AVLTree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AVLTree.cpp; sourceTree = "<group>"; };
@@ -73,6 +76,8 @@
 				A03CF1D82BFE91DD001917DD /* SearchTree.hpp */,
 				A03CF1DB2BFE9205001917DD /* BinaryTree.cpp */,
 				A03CF1DC2BFE9205001917DD /* BinaryTree.hpp */,
+				A034AB1F2C19FB89008BD7EA /* AVLTreeTester.hpp */,
+				A034AB202C19FB89008BD7EA /* AVLTreeTester.cpp */,
 			);
 			path = "Lab 4 \"AVL tree\"";
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 				A03CF1DD2BFE9205001917DD /* BinaryTree.cpp in Sources */,
 				A03CF1DA2BFE91DD001917DD /* SearchTree.cpp in Sources */,
 				A03CF1CF2BFE90C6001917DD /* main.cpp in Sources */,
+				A034AB212C19FB89008BD7EA /* AVLTreeTester.cpp in Sources */,
 				A03CF1D72BFE90DB001917DD /* AVLTree.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

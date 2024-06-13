@@ -110,7 +110,11 @@ void AVLTree::balance(Node* root, Node* parent)
     }
 }
 
-AVLTree::AVLTree() 
+void AVLTree::balance2(Node* root, Node* parent) {
+    
+}
+
+AVLTree::AVLTree()
     : SearchTree()
 {}
 
