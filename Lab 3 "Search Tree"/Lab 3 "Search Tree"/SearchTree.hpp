@@ -11,6 +11,7 @@
 
 class SearchTree : public BinaryTree
 {
+    
 protected:
     Node* find_by_key(int key);
 
@@ -34,7 +35,7 @@ public:
     using BinaryTree::min;
     using BinaryTree::max;
 
-    bool add(const int key);
+    bool add(const int key) override;
 
     int height(int key);
 

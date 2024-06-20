@@ -7,15 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A034AB212C19FB89008BD7EA /* AVLTreeTester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A034AB202C19FB89008BD7EA /* AVLTreeTester.cpp */; };
-		A03CF1CF2BFE90C6001917DD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A03CF1CE2BFE90C6001917DD /* main.cpp */; };
-		A03CF1D72BFE90DB001917DD /* AVLTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A03CF1D52BFE90DB001917DD /* AVLTree.cpp */; };
-		A03CF1DA2BFE91DD001917DD /* SearchTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A03CF1D92BFE91DD001917DD /* SearchTree.cpp */; };
-		A03CF1DD2BFE9205001917DD /* BinaryTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A03CF1DB2BFE9205001917DD /* BinaryTree.cpp */; };
+		A04CD3872C0118ED00709AAF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A04CD3862C0118ED00709AAF /* main.cpp */; };
+		A04CD38F2C0118FB00709AAF /* Huffman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A04CD38D2C0118FB00709AAF /* Huffman.cpp */; };
+		A04CD3922C01193C00709AAF /* Set.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A04CD3912C01193C00709AAF /* Set.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A03CF1C92BFE90C6001917DD /* CopyFiles */ = {
+		A04CD3812C0118ED00709AAF /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -27,20 +25,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A034AB1F2C19FB89008BD7EA /* AVLTreeTester.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AVLTreeTester.hpp; sourceTree = "<group>"; };
-		A034AB202C19FB89008BD7EA /* AVLTreeTester.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AVLTreeTester.cpp; sourceTree = "<group>"; };
-		A03CF1CB2BFE90C6001917DD /* Lab 4 "AVL tree" */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Lab 4 \"AVL tree\""; sourceTree = BUILT_PRODUCTS_DIR; };
-		A03CF1CE2BFE90C6001917DD /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		A03CF1D52BFE90DB001917DD /* AVLTree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AVLTree.cpp; sourceTree = "<group>"; };
-		A03CF1D62BFE90DB001917DD /* AVLTree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AVLTree.hpp; sourceTree = "<group>"; };
-		A03CF1D82BFE91DD001917DD /* SearchTree.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SearchTree.hpp; path = "../../Lab 3 \"Search Tree\"/Lab 3 \"Search Tree\"/SearchTree.hpp"; sourceTree = "<group>"; };
-		A03CF1D92BFE91DD001917DD /* SearchTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SearchTree.cpp; path = "../../Lab 3 \"Search Tree\"/Lab 3 \"Search Tree\"/SearchTree.cpp"; sourceTree = "<group>"; };
-		A03CF1DB2BFE9205001917DD /* BinaryTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BinaryTree.cpp; path = "../../Lab 2 \"BinaryTree\"/Lab 2 \"BinaryTree\"/BinaryTree.cpp"; sourceTree = "<group>"; };
-		A03CF1DC2BFE9205001917DD /* BinaryTree.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = BinaryTree.hpp; path = "../../Lab 2 \"BinaryTree\"/Lab 2 \"BinaryTree\"/BinaryTree.hpp"; sourceTree = "<group>"; };
+		A04CD3832C0118ED00709AAF /* Lab 5 "Huffman Code" */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Lab 5 \"Huffman Code\""; sourceTree = BUILT_PRODUCTS_DIR; };
+		A04CD3862C0118ED00709AAF /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		A04CD38D2C0118FB00709AAF /* Huffman.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Huffman.cpp; sourceTree = "<group>"; };
+		A04CD38E2C0118FB00709AAF /* Huffman.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Huffman.hpp; sourceTree = "<group>"; };
+		A04CD3902C01193C00709AAF /* Set.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Set.hpp; path = "../../../Desktop/workSpace/Просто код/HuffmanCode/HuffmanCode/Set.hpp"; sourceTree = "<group>"; };
+		A04CD3912C01193C00709AAF /* Set.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Set.cpp; path = "../../../Desktop/workSpace/Просто код/HuffmanCode/HuffmanCode/Set.cpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A03CF1C82BFE90C6001917DD /* Frameworks */ = {
+		A04CD3802C0118ED00709AAF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -50,73 +44,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A03CF1C22BFE90C6001917DD = {
+		A04CD37A2C0118ED00709AAF = {
 			isa = PBXGroup;
 			children = (
-				A03CF1CD2BFE90C6001917DD /* Lab 4 "AVL tree" */,
-				A03CF1CC2BFE90C6001917DD /* Products */,
+				A04CD3852C0118ED00709AAF /* Lab 5 "Huffman Code" */,
+				A04CD3842C0118ED00709AAF /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		A03CF1CC2BFE90C6001917DD /* Products */ = {
+		A04CD3842C0118ED00709AAF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A03CF1CB2BFE90C6001917DD /* Lab 4 "AVL tree" */,
+				A04CD3832C0118ED00709AAF /* Lab 5 "Huffman Code" */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A03CF1CD2BFE90C6001917DD /* Lab 4 "AVL tree" */ = {
+		A04CD3852C0118ED00709AAF /* Lab 5 "Huffman Code" */ = {
 			isa = PBXGroup;
 			children = (
-				A03CF1CE2BFE90C6001917DD /* main.cpp */,
-				A03CF1D52BFE90DB001917DD /* AVLTree.cpp */,
-				A03CF1D62BFE90DB001917DD /* AVLTree.hpp */,
-				A03CF1D92BFE91DD001917DD /* SearchTree.cpp */,
-				A03CF1D82BFE91DD001917DD /* SearchTree.hpp */,
-				A03CF1DB2BFE9205001917DD /* BinaryTree.cpp */,
-				A03CF1DC2BFE9205001917DD /* BinaryTree.hpp */,
-				A034AB1F2C19FB89008BD7EA /* AVLTreeTester.hpp */,
-				A034AB202C19FB89008BD7EA /* AVLTreeTester.cpp */,
+				A04CD3862C0118ED00709AAF /* main.cpp */,
+				A04CD38D2C0118FB00709AAF /* Huffman.cpp */,
+				A04CD38E2C0118FB00709AAF /* Huffman.hpp */,
+				A04CD3912C01193C00709AAF /* Set.cpp */,
+				A04CD3902C01193C00709AAF /* Set.hpp */,
 			);
-			path = "Lab 4 \"AVL tree\"";
+			path = "Lab 5 \"Huffman Code\"";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A03CF1CA2BFE90C6001917DD /* Lab 4 "AVL tree" */ = {
+		A04CD3822C0118ED00709AAF /* Lab 5 "Huffman Code" */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A03CF1D22BFE90C6001917DD /* Build configuration list for PBXNativeTarget "Lab 4 "AVL tree"" */;
+			buildConfigurationList = A04CD38A2C0118ED00709AAF /* Build configuration list for PBXNativeTarget "Lab 5 "Huffman Code"" */;
 			buildPhases = (
-				A03CF1C72BFE90C6001917DD /* Sources */,
-				A03CF1C82BFE90C6001917DD /* Frameworks */,
-				A03CF1C92BFE90C6001917DD /* CopyFiles */,
+				A04CD37F2C0118ED00709AAF /* Sources */,
+				A04CD3802C0118ED00709AAF /* Frameworks */,
+				A04CD3812C0118ED00709AAF /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Lab 4 \"AVL tree\"";
-			productName = "Lab 4 \"AVL tree\"";
-			productReference = A03CF1CB2BFE90C6001917DD /* Lab 4 "AVL tree" */;
+			name = "Lab 5 \"Huffman Code\"";
+			productName = "Lab 5 \"Huffman Code\"";
+			productReference = A04CD3832C0118ED00709AAF /* Lab 5 "Huffman Code" */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A03CF1C32BFE90C6001917DD /* Project object */ = {
+		A04CD37B2C0118ED00709AAF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
-					A03CF1CA2BFE90C6001917DD = {
+					A04CD3822C0118ED00709AAF = {
 						CreatedOnToolsVersion = 15.4;
 					};
 				};
 			};
-			buildConfigurationList = A03CF1C62BFE90C6001917DD /* Build configuration list for PBXProject "Lab 4 "AVL tree"" */;
+			buildConfigurationList = A04CD37E2C0118ED00709AAF /* Build configuration list for PBXProject "Lab 5 "Huffman Code"" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -124,33 +114,31 @@
 				en,
 				Base,
 			);
-			mainGroup = A03CF1C22BFE90C6001917DD;
-			productRefGroup = A03CF1CC2BFE90C6001917DD /* Products */;
+			mainGroup = A04CD37A2C0118ED00709AAF;
+			productRefGroup = A04CD3842C0118ED00709AAF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A03CF1CA2BFE90C6001917DD /* Lab 4 "AVL tree" */,
+				A04CD3822C0118ED00709AAF /* Lab 5 "Huffman Code" */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A03CF1C72BFE90C6001917DD /* Sources */ = {
+		A04CD37F2C0118ED00709AAF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A03CF1DD2BFE9205001917DD /* BinaryTree.cpp in Sources */,
-				A03CF1DA2BFE91DD001917DD /* SearchTree.cpp in Sources */,
-				A03CF1CF2BFE90C6001917DD /* main.cpp in Sources */,
-				A034AB212C19FB89008BD7EA /* AVLTreeTester.cpp in Sources */,
-				A03CF1D72BFE90DB001917DD /* AVLTree.cpp in Sources */,
+				A04CD3922C01193C00709AAF /* Set.cpp in Sources */,
+				A04CD3872C0118ED00709AAF /* main.cpp in Sources */,
+				A04CD38F2C0118FB00709AAF /* Huffman.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		A03CF1D02BFE90C6001917DD /* Debug */ = {
+		A04CD3882C0118ED00709AAF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -211,7 +199,7 @@
 			};
 			name = Debug;
 		};
-		A03CF1D12BFE90C6001917DD /* Release */ = {
+		A04CD3892C0118ED00709AAF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -265,7 +253,7 @@
 			};
 			name = Release;
 		};
-		A03CF1D32BFE90C6001917DD /* Debug */ = {
+		A04CD38B2C0118ED00709AAF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -273,7 +261,7 @@
 			};
 			name = Debug;
 		};
-		A03CF1D42BFE90C6001917DD /* Release */ = {
+		A04CD38C2C0118ED00709AAF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -284,25 +272,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A03CF1C62BFE90C6001917DD /* Build configuration list for PBXProject "Lab 4 "AVL tree"" */ = {
+		A04CD37E2C0118ED00709AAF /* Build configuration list for PBXProject "Lab 5 "Huffman Code"" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A03CF1D02BFE90C6001917DD /* Debug */,
-				A03CF1D12BFE90C6001917DD /* Release */,
+				A04CD3882C0118ED00709AAF /* Debug */,
+				A04CD3892C0118ED00709AAF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A03CF1D22BFE90C6001917DD /* Build configuration list for PBXNativeTarget "Lab 4 "AVL tree"" */ = {
+		A04CD38A2C0118ED00709AAF /* Build configuration list for PBXNativeTarget "Lab 5 "Huffman Code"" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A03CF1D32BFE90C6001917DD /* Debug */,
-				A03CF1D42BFE90C6001917DD /* Release */,
+				A04CD38B2C0118ED00709AAF /* Debug */,
+				A04CD38C2C0118ED00709AAF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = A03CF1C32BFE90C6001917DD /* Project object */;
+	rootObject = A04CD37B2C0118ED00709AAF /* Project object */;
 }

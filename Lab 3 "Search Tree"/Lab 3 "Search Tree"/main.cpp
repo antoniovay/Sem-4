@@ -7,28 +7,45 @@
 
 #include <iostream>
 #include "SearchTree.hpp"
+#include "SearchTreeTester.hpp"
+
+
+void remove_test(const int A = 0, const int B = 100, const int SIZE = 10) {
+    
+    srand(time(0));
+    
+    SearchTree tree;
+    
+    std::vector<int> nums;
+    
+    for (int i = 0; i < SIZE; i++) {
+        nums.push_back(rand() % B - A);
+        tree.add(nums[i]);
+    }
+
+    std::cout << "Initialed tree:" << std::endl;
+    tree.printVertical();
+    
+    std::cout << std::endl << std::endl << "-----------Remove test----------" << std::endl<< std::endl << "====================" << std::endl;
+    
+    for (int i = 0; i < SIZE; i++) {
+        std::cout << "Deleting " << nums[i] << ":" << std::endl << "====================" << std::endl << "Tree:" << std::endl;
+        tree.remove(nums[i]);
+        tree.printVertical();
+        std::cout << "====================" << std::endl;
+    }
+    
+    std::cout << std::endl << std::endl;
+    
+}
+
 
 int main()
 {
     
-    SearchTree tree;
+    remove_test();
     
-    tree.add(10);
-    tree.add(20);
-    tree.add(5);
-    tree.add(6);
-    tree.add(50);
-    tree.add(1);
-    tree.add(9);
-    tree.add(17);
-    tree.add(70);
-    tree.add(0);
-
-    
-    tree.printVertical();
-    
-    tree.remove(10);
-    
-    tree.printVertical();
+//    SearchTreeTester tester(false, true);
+//    tester.test(100);
     
 }
