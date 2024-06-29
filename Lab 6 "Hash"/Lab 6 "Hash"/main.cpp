@@ -8,10 +8,10 @@
 #include <iostream>
 #include <assert.h>
 
-//#include <QApplication>
-//#include <QDebug>
+#include <QApplication>
+#include <QDebug>
 
-//#include "MainWindow.hpp"
+#include "MainWindow.hpp"
 
 #include "HashTable.hpp"
 
@@ -29,25 +29,25 @@ int main()
     
     std::cout << table << std::endl;
     
-//    table.remove(59);
-//    
-//    std::cout << table << std::endl;
-//    
-//    //table.changeFunction(new SecondHashFunction);
-//    
-//    table.add(59, "desyat");
-//    
-//    std::cout << table << std::endl;
+    table.remove(59);
+    
+    std::cout << table << std::endl;
+    
+    //table.changeFunction(new SecondHashFunction);
+    
+    table.add(59, "desyat");
+    
+    std::cout << table << std::endl;
     
     return 0;
 }
 
 
 
-//int main(int argc, char *argv[])
-//{
-//    QApplication app(argc, argv);
-//    MainWindow mw;
-//    mw.show();
-//    return app.exec();
-//}
+int main(int argc, char *argv[])
+{
+    QApplication app(argc, argv);
+    MainWindow mw;
+    mw.show();
+    return app.exec();
+}
