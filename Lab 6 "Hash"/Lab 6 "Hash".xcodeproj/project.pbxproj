@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A0B01B3C2C07C87F004E2A37 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0B01B3B2C07C87F004E2A37 /* main.cpp */; };
-		A0B01B442C07C889004E2A37 /* Hash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0B01B422C07C889004E2A37 /* Hash.cpp */; };
+		A0B01B442C07C889004E2A37 /* HashTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0B01B422C07C889004E2A37 /* HashTable.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +26,8 @@
 /* Begin PBXFileReference section */
 		A0B01B382C07C87F004E2A37 /* Lab 6 "Hash" */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Lab 6 \"Hash\""; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0B01B3B2C07C87F004E2A37 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		A0B01B422C07C889004E2A37 /* Hash.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Hash.cpp; sourceTree = "<group>"; };
-		A0B01B432C07C889004E2A37 /* Hash.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Hash.hpp; sourceTree = "<group>"; };
+		A0B01B422C07C889004E2A37 /* HashTable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HashTable.cpp; sourceTree = "<group>"; };
+		A0B01B432C07C889004E2A37 /* HashTable.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HashTable.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				A0B01B3B2C07C87F004E2A37 /* main.cpp */,
-				A0B01B422C07C889004E2A37 /* Hash.cpp */,
-				A0B01B432C07C889004E2A37 /* Hash.hpp */,
+				A0B01B422C07C889004E2A37 /* HashTable.cpp */,
+				A0B01B432C07C889004E2A37 /* HashTable.hpp */,
 			);
 			path = "Lab 6 \"Hash\"";
 			sourceTree = "<group>";
@@ -125,7 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0B01B3C2C07C87F004E2A37 /* main.cpp in Sources */,
-				A0B01B442C07C889004E2A37 /* Hash.cpp in Sources */,
+				A0B01B442C07C889004E2A37 /* HashTable.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

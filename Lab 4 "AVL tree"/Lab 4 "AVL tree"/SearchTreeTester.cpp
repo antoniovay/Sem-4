@@ -1,74 +1,73 @@
 //
-//  AVLTreeTester.cpp
-//  Lab 4 "AVL tree"
+//  SearchTreeTester.cpp
+//  Lab 3 "Search Tree"
 //
-//  Created by Antony Miroshnichenko on 12.06.2024.
+//  Created by Antony Miroshnichenko on 16.05.2024.
 //
+
+
 
 #include <algorithm>
 #include <assert.h>
 #include <iostream>
 
-#include "AVLTreeTester.hpp"
+#include "SearchTreeTester.hpp"
 
 
 
-AVLTreeTester::AVLTreeTester(const bool useConsoleOutput,
+SearchTreeTester::SearchTreeTester(const bool useConsoleOutput,
                                    const bool enableAllTests)
     : BinaryTreeTester(useConsoleOutput, enableAllTests)
 {}
 
-BinaryTree *AVLTreeTester::allocateTree()
+BinaryTree *SearchTreeTester::allocateTree()
 {
-    return new AVLTree;
+    return new SearchTree;
 }
 
-void AVLTreeTester::check_addAndCount(const BinaryTree *tree, const int size)
+void SearchTreeTester::check_addAndCount(const BinaryTree *tree, const int size)
 {
     BinaryTreeTester::check_addAndCount(tree, size);
     tree->printHorizontal();
     assert(isSearchTree(tree));
-    assert(tree->isBalanced());
 }
 
-void AVLTreeTester::check_remove(BinaryTree *tree, const int key,
+void SearchTreeTester::check_remove(BinaryTree *tree, const int key,
                                     const bool result, const int size)
 {
     BinaryTreeTester::check_remove(tree, key, result, size);
     assert(isSearchTree(tree));
-    assert(tree->isBalanced());
 }
 
-void AVLTreeTester::check_clear(const BinaryTree *tree, const int size)
+void SearchTreeTester::check_clear(const BinaryTree *tree, const int size)
 {
     BinaryTreeTester::check_clear(tree, size);
     assert(isSearchTree(tree));
-    assert(tree->isBalanced());
 }
 
-void AVLTreeTester::check_assign(const BinaryTree *first,
+void SearchTreeTester::check_assign(const BinaryTree *first,
                                     const BinaryTree *second)
 {
     BinaryTreeTester::check_assign(first, second);
-    assert(isSearchTree(first) && first->isBalanced());
-    assert(isSearchTree(second) && second->isBalanced());
+    assert(isSearchTree(first));
+    assert(isSearchTree(second));
 }
 
 
-void AVLTreeTester::assign()
+void SearchTreeTester::assign()
 {
     if (!assignCheckEnabled()) {
         return;
     }
 
-    AVLTree tree1;
+    SearchTree tree1;
 
     std::vector<int> nodeKeys = generateKeys();
     for (int i = 0 ; i < m_maxSize; ++i) {
         tree1.add(nodeKeys[i]);
     }
 
-    AVLTree tree2 = tree1; //Конструктор копирования
+    SearchTree tree2 = tree1; //Конструктор копирования
     check_assign(&tree1, &tree2);
 
     tree1 = tree1; //Присваивание самому себе
@@ -77,7 +76,7 @@ void AVLTreeTester::assign()
     tree1 = tree2; //Присваивание одинаковых по размеру деревьев
     check_assign(&tree1, &tree2);
 
-    AVLTree tree3;
+    SearchTree tree3;
     tree1 = tree3; //Присваивание дерева меньшего размера
     check_assign(&tree1, &tree3);
 
@@ -85,7 +84,7 @@ void AVLTreeTester::assign()
     check_assign(&tree2, &tree3);
 }
 
-bool AVLTreeTester::isSearchTree(const BinaryTree *tree)
+bool SearchTreeTester::isSearchTree(const BinaryTree *tree)
 {
     if (m_useConsoleOutput) {
         tree->printHorizontal();
@@ -96,7 +95,7 @@ bool AVLTreeTester::isSearchTree(const BinaryTree *tree)
     return std::is_sorted(keys.begin(), keys.end());
 }
 
-void AVLTreeTester::treeKeysLnr(BinaryTree::Node *root, std::vector<int> &keys)
+void SearchTreeTester::treeKeysLnr(BinaryTree::Node *root, std::vector<int> &keys)
 {
     if (!root) {
         return;

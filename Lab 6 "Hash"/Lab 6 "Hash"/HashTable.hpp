@@ -32,6 +32,11 @@ public:
             return K % N;
         else
             return (operator()(N, K, i - 1) + c * i + d * i * i) % N;
+            //return ((K % N) + 25 % 5 + 25 % 7) % N;
+    }
+    
+    IHashFunction* clone() const override {
+            return new FirstHashFunction(*this);
     }
 
 private:
@@ -52,6 +57,10 @@ public:
             return K % N;
         else
             return static_cast<int>(operator()(N, K, i - 1) * a * N) % N;
+    }
+    
+    IHashFunction* clone() const override {
+            return new SecondHashFunction(*this);
     }
 
 private:
@@ -74,6 +83,10 @@ public:
         else return 0;
     }
     
+    IHashFunction* clone() const override {
+            return new ThirdHashFunction(*this);
+    }
+    
 };
 
 
@@ -82,19 +95,19 @@ public:
 
 
 
-class Hash
+class HashTable
 {
 public:
     struct tableElement;
 //    class Pair;
     
 public:
-    Hash();
-    Hash(int n);
-    Hash(const Hash &other);
-    ~Hash();
+    HashTable();
+    HashTable(int n);
+    HashTable(const HashTable &other);
+    ~HashTable();
     
-    Hash operator =(const Hash &other);
+    HashTable& operator =(const HashTable &other);
     
     bool add(int key, std::string string);
     bool remove(int key);
@@ -104,7 +117,7 @@ public:
     
     void resize(const int size);
     
-    friend std::ostream &operator <<(std::ostream &stream, const Hash &object);
+    friend std::ostream &operator <<(std::ostream &stream, const HashTable &object);
     
 private:
     tableElement* m_table = nullptr;
@@ -113,7 +126,7 @@ private:
 };
 
 
-struct Hash::tableElement
+struct HashTable::tableElement
 {
     int key = 0;
     std::string data = "";

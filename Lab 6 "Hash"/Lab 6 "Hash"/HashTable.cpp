@@ -5,38 +5,42 @@
 //  Created by Antony Miroshnichenko on 28.05.2024.
 //
 
-#include "Hash.hpp"
+#include "HashTable.hpp"
 
-Hash::Hash()
-: Hash(1)
+HashTable::HashTable()
+: HashTable(1)
 {}
 
-Hash::Hash(int n) {
+HashTable::HashTable(int n) {
     m_size = n;
     m_table = new tableElement[m_size];
     m_function = new FirstHashFunction;
 }
 
-Hash::Hash(const Hash &other) {
+HashTable::HashTable(const HashTable &other) {
+        
     m_size = other.m_size;
     m_table = new tableElement[m_size];
     
     for (int i = 0; i < m_size; i++)
         add(other.m_table[i].key, other.m_table[i].data);
-    
-    m_function = other.m_function;
+    m_function = other.m_function->clone();
 }
 
-Hash::~Hash() {
+HashTable::~HashTable() {
     if (m_table)
         delete [] m_table;
     if (m_function)
         delete m_function;
 }
 
-Hash Hash::operator =(const Hash &other) {
+HashTable &HashTable::operator =(const HashTable &other) {
+    
+    if (this == &other)
+        return *this;
+    
     if (m_table)
-        delete m_table;
+        delete [] m_table;
 
     m_size = other.m_size;
     m_table = new tableElement[m_size];
@@ -44,14 +48,17 @@ Hash Hash::operator =(const Hash &other) {
     for (int i = 0; i < m_size; i++)
         add(other.m_table[i].key, other.m_table[i].data);
     
-    m_function = other.m_function;
+    m_function = other.m_function->clone();
 
     return *this;
 }
 
-bool Hash::add(int key, std::string string) {
-    int index = (*m_function)(key, m_size, 1);
+bool HashTable::add(int key, std::string string) {
+    if (!m_function)
+        return false;
     
+    int index = (*m_function)(key, m_size, 1);
+    //std::cout << index << std::endl;
     if (!m_table[index].hasValue) {
         m_table[index].key = key;
         m_table[index].data = string;
@@ -74,7 +81,10 @@ bool Hash::add(int key, std::string string) {
     return true;
 }
 
-bool Hash::remove(int key) {
+bool HashTable::remove(int key) {
+    if (!m_function)
+        return false;
+    
     int index = (*m_function)(key, m_size, 1);
 
     if (!m_table[index].hasValue)
@@ -100,7 +110,7 @@ bool Hash::remove(int key) {
     return false;
 }
 
-bool Hash::inTable(int key) {
+bool HashTable::inTable(int key) {
     int index = (*m_function)(key, m_size, 1);
 
     tableElement* temp = &m_table[index];
@@ -111,11 +121,11 @@ bool Hash::inTable(int key) {
         return false;
     else if(temp->hasValue && temp->key == key)
         return true;
-    return true;
+    return false;
     
 }
 
-void Hash::changeFunction(IHashFunction *newFunction) {
+void HashTable::changeFunction(IHashFunction *newFunction) {
     m_function = newFunction;
 
     tableElement *newTable = new tableElement[m_size];
@@ -188,14 +198,14 @@ void Hash::changeFunction(IHashFunction *newFunction) {
 //    m_next = next;
 //}
 
-std::ostream &operator <<(std::ostream &stream, const Hash &object) {
+std::ostream &operator <<(std::ostream &stream, const HashTable &object) {
     for (int i = 0; i < object.m_size; i++) {
         if (object.m_table[i].hasValue)
             stream << i << "\t" <<
-            &object.m_table[i] << "\t" <<
-            object.m_table[i].next << "\t" <<
-            object.m_table[i].key << "\t" <<
-            object.m_table[i].data << std::endl;
+                    &object.m_table[i] << "\t" <<
+                    object.m_table[i].next << "\t" <<
+                    object.m_table[i].key << "\t" <<
+                    object.m_table[i].data << std::endl;
         else
             stream << i << "\tFree" << std::endl;
     }

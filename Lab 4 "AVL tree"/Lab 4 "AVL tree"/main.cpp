@@ -9,6 +9,7 @@
 #include <iostream>
 
 #include "AVLTree.hpp"
+#include "AVLTreeTester.hpp"
 
 
 bool test_balance_etnt(int maxSize = 20, bool useConsole = true, bool printTree = false) {
@@ -60,19 +61,25 @@ bool test_balance_po(int maxSize = 20, bool useConsole = true, bool printTree = 
 
 int main() {
     
-    std::cout << "Every time new tree TEST:" << std::endl;
-    if(test_balance_etnt(100, true, false))
-        std::cout << "SUCCESS";
-    else
-        std::cout << "FAILED";
-    std::cout << std::endl << std::endl;
+//    std::cout << "Every time new tree TEST:" << std::endl;
+//    if(test_balance_etnt(100, true, false))
+//        std::cout << "SUCCESS";
+//    else
+//        std::cout << "FAILED";
+//    std::cout << std::endl << std::endl;
+//    
+//    
+//    std::cout << "Plus one TEST:" << std::endl;
+//    if(test_balance_po(100, true, false))
+//        std::cout << "SUCCESS";
+//    else
+//        std::cout << "FAILED";
+//    std::cout << std::endl << std::endl;
     
     
-    std::cout << "Plus one TEST:" << std::endl;
-    if(test_balance_po(100, true, false))
-        std::cout << "SUCCESS";
-    else
-        std::cout << "FAILED";
-    std::cout << std::endl << std::endl;
+    
+    AVLTreeTester tester(true);
+    tester.setRemoveCheckEnabled(true);
+    tester.test(10);
     
 }
