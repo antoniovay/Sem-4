@@ -136,34 +136,5 @@ struct HashTable::tableElement
 
 
 
-//class Hash::Pair
-//{
-//    friend class Hash;
-//    
-//public:
-//    Pair(const int key = {}, const std::string& value = {}, Pair* next = nullptr)
-//        : m_key(key), m_value(value), m_next(next)
-//    {}
-//
-//    ~Pair() = default;
-//
-//    int key() const;
-//    std::string value() const;
-//
-//    void setKey(const int key);
-//    void setValue(const std::string& value);
-//
-//    Pair* next();
-//    const Pair* next() const;
-//    void setNext(Pair* next);
-//
-//private:
-//    int m_key = 0;
-//    std::string m_value = "";
-//
-//    Pair* m_next = nullptr;
-//};
-
-
 
 

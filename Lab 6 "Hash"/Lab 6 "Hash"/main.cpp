@@ -8,10 +8,10 @@
 #include <iostream>
 #include <assert.h>
 
-#include <QApplication>
-#include <QDebug>
+//#include <QApplication>
+//#include <QDebug>
 
-#include "MainWindow.hpp"
+//#include "MainWindow.hpp"
 
 #include "HashTable.hpp"
 
@@ -44,10 +44,10 @@ int main()
 
 
 
-int main(int argc, char *argv[])
-{
-    QApplication app(argc, argv);
-    MainWindow mw;
-    mw.show();
-    return app.exec();
-}
+//int main(int argc, char *argv[])
+//{
+//    QApplication app(argc, argv);
+//    MainWindow mw;
+//    mw.show();
+//    return app.exec();
+//}
