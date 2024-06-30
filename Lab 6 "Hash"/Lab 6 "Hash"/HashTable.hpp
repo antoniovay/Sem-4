@@ -90,6 +90,17 @@ public:
 };
 
 
+class SimpleHashFunction : public IHashFunction
+{
+public:
+    int operator() (int size, int key, int /*i*/) override {
+        return key % size;
+    }
+    IHashFunction *clone() const override {
+        return new SimpleHashFunction(*this);
+    }
+} ;
+
 
 
 
