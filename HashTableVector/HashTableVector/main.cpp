@@ -7,8 +7,15 @@
 
 #include <iostream>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+#include <QApplication>
+#include <QDebug>
+
+#include "MainWindow.hpp"
+
+int main(int argc, char *argv[])
+{
+    QApplication app(argc, argv);
+    MainWindow mw;
+    mw.show();
+    return app.exec();
 }
