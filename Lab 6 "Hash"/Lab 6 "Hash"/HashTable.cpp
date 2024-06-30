@@ -54,32 +54,32 @@ HashTable &HashTable::operator =(const HashTable &other) {
 }
 
 bool HashTable::add(int key, std::string string) {
-//    if (!m_function)
-//        return false;
-//    
-//    int index = (*m_function)(key, m_size, 1);
-////    std::cout << index << std::endl;
-//    
-//    if (!m_table[index].hasValue) {
-//        m_table[index].key = key;
-//        m_table[index].data = string;
-//        m_table[index].hasValue = true;
-//        
-//    } else {
-//        int i = 0;
-//        while (i < m_size && m_table[i].hasValue)
-//            i++;
-//
-//        if (i >= m_size)
-//            return false;
-//
-//        m_table[index].next = &m_table[i];
-//        m_table[i].key = key;
-//        m_table[i].data = string;
-//        m_table[i].hasValue = true;
-//    }
-//    
-//    return true;
+    if (!m_function)
+        return false;
+    
+    int index = (*m_function)(key, m_size, 1);
+//    std::cout << index << std::endl;
+    
+    if (!m_table[index].hasValue) {
+        m_table[index].key = key;
+        m_table[index].data = string;
+        m_table[index].hasValue = true;
+        
+    } else {
+        int i = 0;
+        while (i < m_size && m_table[i].hasValue)
+            i++;
+
+        if (i >= m_size)
+            return false;
+
+        m_table[index].next = &m_table[i];
+        m_table[i].key = key;
+        m_table[i].data = string;
+        m_table[i].hasValue = true;
+    }
+    
+    return true;
     
     
     
@@ -96,27 +96,27 @@ bool HashTable::add(int key, std::string string) {
     
     
     
-    if (!m_function)
-    return false;
-
-    int index = (*m_function)(m_size, key, 1);
-    //std::cout « index « std::endl;
-    if (!m_table[index].hasValue) {
-        m_table[index].key = key;
-        m_table[index].data = string;
-        m_table[index].hasValue = true;
-    } else {
-        int newIndex = (*m_function)(m_size, key, 1);
-        if (!m_table[newIndex].hasValue) {
-            m_table[newIndex].key = key;
-            m_table[newIndex].data = string;
-            m_table[newIndex].hasValue = true;
-            m_table[index].next = &m_table[newIndex];
-        } else {
-            return false;
-        }
-    }
-    return true;
+//    if (!m_function)
+//    return false;
+//
+//    int index = (*m_function)(m_size, key, 1);
+//    //std::cout « index « std::endl;
+//    if (!m_table[index].hasValue) {
+//        m_table[index].key = key;
+//        m_table[index].data = string;
+//        m_table[index].hasValue = true;
+//    } else {
+//        int newIndex = (*m_function)(m_size, key, 1);
+//        if (!m_table[newIndex].hasValue) {
+//            m_table[newIndex].key = key;
+//            m_table[newIndex].data = string;
+//            m_table[newIndex].hasValue = true;
+//            m_table[index].next = &m_table[newIndex];
+//        } else {
+//            return false;
+//        }
+//    }
+//    return true;
 }
 
 bool HashTable::remove(int key) {
