@@ -120,44 +120,44 @@ bool HashTable::add(int key, std::string string) {
 }
 
 bool HashTable::remove(int key) {
-//    if (!m_function)
-//        return false;
-//    
-//    int index = (*m_function)(key, m_size, 1);
-//
-//    if (!m_table[index].hasValue)
-//        return false;
-//
-//    tableElement *temp = &m_table[index];
-//    while (temp && temp->key != key && temp->hasValue)
-//        temp = temp->next;
-//
-//    if (!temp)
-//        return false;
-//    
-//    else if(temp->hasValue && temp->key == key) {
-//        while (temp->next) {
-//            temp->key = temp->next->key;
-//            temp->data = temp->next->data;
-//            temp = temp->next;
-//        }
-//        temp->hasValue = false;
-//        return true;
-//    }
-//    
-//    return false;
+    if (!m_function)
+        return false;
     
-    int index = (*m_function)(m_size, key, 1);
+    int index = (*m_function)(key, m_size, 1);
 
-    for (int i = 0; i < m_size && m_table[i].hasValue; i++)
-        if (m_table[i].key == key) {
-            m_table[i].key = m_table[i].next->key;
-            m_table[i].data = m_table[i].next->data;
-            m_table[i] = new tableElement(*m_table[i].next);
-            return true;
+    if (!m_table[index].hasValue)
+        return false;
+
+    tableElement *temp = &m_table[index];
+    while (temp && temp->key != key && temp->hasValue)
+        temp = temp->next;
+
+    if (!temp)
+        return false;
+    
+    else if(temp->hasValue && temp->key == key) {
+        while (temp->next) {
+            temp->key = temp->next->key;
+            temp->data = temp->next->data;
+            temp = temp->next;
         }
+        temp->hasValue = false;
+        return true;
+    }
     
     return false;
+    
+//    int index = (*m_function)(m_size, key, 1);
+//
+//    for (int i = 0; i < m_size && m_table[i].hasValue; i++)
+//        if (m_table[i].key == key) {
+//            m_table[i].key = m_table[i].next->key;
+//            m_table[i].data = m_table[i].next->data;
+//            m_table[i] = new tableElement(*m_table[i].next);
+//            return true;
+//        }
+//    
+//    return false;
 }
 
 bool HashTable::inTable(int key) {
