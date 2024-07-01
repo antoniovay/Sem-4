@@ -5,35 +5,40 @@
 //  Created by Antony Miroshnichenko on 28.06.2024.
 //
 
+#ifndef ARE_TEMPLATE_HASH_TABLE_METHODS_DEFINED
+#define ARE_TEMPLATE_HASH_TABLE_METHODS_DEFINED
+
 #include "HashTable.hpp"
 
 
-HashTable::HashTable() 
+template <typename Type>
+HashTable<Type>::HashTable()
     : m_size(10),
       m_table(10),
       m_function(new FirstHashFunction())
 {}
 
-
-HashTable::HashTable(const int size, IHashFunction *function)
+template <typename Type>
+HashTable<Type>::HashTable(const int size, IHashFunction *function)
     : m_size(size),
       m_table(size),
       m_function(function->clone()) 
 {}
 
-
-HashTable::HashTable(const HashTable &other)
+template <typename Type>
+HashTable<Type>::HashTable(const HashTable &other)
     : m_size(other.m_size),
       m_table(other.m_table),
       m_function(other.m_function->clone()) 
 {}
 
-HashTable::~HashTable() {
+template <typename Type>
+HashTable<Type>::~HashTable() {
     delete m_function;
 }
 
-
-HashTable& HashTable::operator =(const HashTable &other) {
+template <typename Type>
+HashTable<Type> &HashTable<Type>::operator =(const HashTable &other) {
     if (this != &other) {
         delete m_function;
         m_size = other.m_size;
@@ -43,7 +48,8 @@ HashTable& HashTable::operator =(const HashTable &other) {
     return *this;
 }
 
-void HashTable::add(const int key, const std::string &data) {
+template <typename Type>
+void HashTable<Type>::add(const int key, const Type &data) {
     if (inTable(key))
         return;
 
@@ -51,10 +57,11 @@ void HashTable::add(const int key, const std::string &data) {
     m_table[index].push_back(tableElement(key, data));
 }
 
-bool HashTable::remove(const int key) {
+template <typename Type>
+bool HashTable<Type>::remove(const int key) {
     int index = m_function->hash(key, m_size);
 
-    for (auto it = m_table[index].begin(); it != m_table[index].end(); ++it) {
+    for (auto it = m_table[index].begin(); it != m_table[index].end(); it++) {
         if (it->m_key == key) {
             m_table[index].erase(it);
             return true;
@@ -63,7 +70,8 @@ bool HashTable::remove(const int key) {
     return false;
 }
 
-bool HashTable::inTable(const int key) const {
+template <typename Type>
+bool HashTable<Type>::inTable(const int key) const {
     int index = m_function->hash(key, m_size);
     for (const auto& tabElem : m_table[index]) {
         if (tabElem.m_key == key) {
@@ -73,17 +81,19 @@ bool HashTable::inTable(const int key) const {
     return false;
 }
 
-void HashTable::changeFunction(IHashFunction *newHashFunction) {
-    if (!newHashFunction || m_function == newHashFunction) {
+template <typename Type>
+void HashTable<Type>::changeFunction(IHashFunction *function) {
+    if (!function || m_function == function) {
         return;
     }
 
     delete m_function;
-    m_function = newHashFunction->clone();
+    m_function = function->clone();
     resize(m_size);
 }
 
-void HashTable::resize(int size) {
+template <typename Type>
+void HashTable<Type>::resize(const int size) {
     std::vector<std::list<tableElement>> newTable(size);
     for (const auto &list : m_table) {
         for (const auto& tabElem : list) {
@@ -95,13 +105,15 @@ void HashTable::resize(int size) {
     m_size = size;
 }
 
-void HashTable::clear() {
+template <typename Type>
+void HashTable<Type>::clear() {
     for (auto &list : m_table) {
         list.clear();
     }
 }
 
-std::string &HashTable::operator [](const int key) {
+template <typename Type>
+Type &HashTable<Type>::operator [](const int key) {
     int index = m_function->hash(key, m_size);
 
     for (auto &tabElem : m_table[index]) {
@@ -114,11 +126,5 @@ std::string &HashTable::operator [](const int key) {
 }
 
 
-std::ostream &operator <<(std::ostream &stream, const HashTable &object) {
-    for (int i = 0; i < object.m_size; i++) {
-        stream << i << "\t" <<
-                &object.m_table[i] << "\t" <<
-                object.m_table[i].m_key << "\t" <<
-                object.m_table[i].m_data << std::endl;
-    }
-}
+
+#endif

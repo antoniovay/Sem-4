@@ -5,7 +5,8 @@
 //  Created by Antony Miroshnichenko on 28.06.2024.
 //
 
-#pragma once
+#ifndef IS_TEMPLATE_HASH_TABLE_DECLARED
+#define IS_TEMPLATE_HASH_TABLE_DECLARED
 
 #include <iostream>
 #include <vector>
@@ -13,12 +14,10 @@
 #include <cmath>
 #include <algorithm>
 #include <list>
-#include <assert.h>
 
 class IHashFunction 
 {
 public:
-    IHashFunction() = default;
     virtual ~IHashFunction() = default;
     virtual IHashFunction *clone() const = 0;
     virtual int hash(const int key, const int m_size) const = 0;
@@ -78,19 +77,20 @@ private:
 };
 
 
+template <typename Type>
 struct tableElement
 {
-    int m_key = 0;
-    std::string m_data = "";
+    int m_key;
+    Type m_data;
    
-    tableElement(int key, const std::string &data) {
-        m_key = key;
-        m_data = data;
-    }
-    ~tableElement() = default;
+    tableElement(int key, const Type &data)
+        : m_key(key),
+          m_data(data)
+    {}
 };
 
 
+template <typename Type>
 class HashTable
 {
 public:
@@ -105,7 +105,7 @@ public:
     
     HashTable& operator =(const HashTable& other);
 
-    void add(const int key, const std::string& value);
+    void add(const int key, const Type& value);
     bool remove(const int key);
     
     bool inTable(const int key) const;
@@ -118,7 +118,9 @@ public:
     friend std::ostream &operator <<(std::ostream &stream, const HashTable &object);
     
 
-    std::string &operator [](const int key);
+    Type &operator [](const int key);
+    
+    friend class HashTableWidget;
     
 private:
     std::vector<std::list<tableElement>> m_table;
@@ -126,3 +128,7 @@ private:
     IHashFunction *m_function;
     
 };
+
+#include "HashTable.cpp"
+
+#endif
