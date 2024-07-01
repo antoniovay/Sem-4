@@ -8,254 +8,276 @@
 #include "HashTable.hpp"
 
 HashTable::HashTable()
-: HashTable(1)
+    : HashTable(10, new FirstHashFunction)
 {}
 
-HashTable::HashTable(int n) {
-    m_size = n;
-    m_table = new tableElement[m_size];
-    m_function = new FirstHashFunction;
+HashTable::HashTable(int size, IHashFunction* function)
+    : m_size(size),
+      m_function(function),
+      m_table(size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        m_table[i] = new tableElement;
+    }
 }
 
-HashTable::HashTable(const HashTable &other) {
-        
-    m_size = other.m_size;
-    m_table = new tableElement[m_size];
+HashTable::HashTable(const HashTable &other)
+    : m_size(other.m_size),
+      m_table(other.m_size)
+{
     
-    for (int i = 0; i < m_size; i++)
-        add(other.m_table[i].key, other.m_table[i].data);
-    m_function = other.m_function->clone();
+    m_function = other.m_function->_clone();
+        HashTable temp(other.m_size, other.m_function->_clone());
+        for (int i = 0; i < other.m_size; i++)
+        {
+            temp.m_table[i]->m_hasValue = other.m_table[i]->m_hasValue;
+            temp.m_table[i]->m_key = other.m_table[i]->m_key;
+            temp.m_table[i]->m_data = other.m_table[i]->m_data;
+            temp.m_table[i]->m_next = other.m_table[i]->m_next ? temp.m_table[other._findIndex(other.m_table[i]->m_next)] : nullptr;
+            temp.m_table[i]->m_prev = other.m_table[i]->m_prev ? temp.m_table[other._findIndex(other.m_table[i]->m_prev)] : nullptr;
+        }
+        std::swap(m_table, temp.m_table);
 }
 
 HashTable::~HashTable() {
-    if (m_table)
-        delete [] m_table;
     if (m_function)
         delete m_function;
+    for (int i = 0; i < m_size; i++)
+            delete m_table[i];
 }
 
 HashTable &HashTable::operator =(const HashTable &other) {
-    
     if (this == &other)
         return *this;
     
-    if (m_table)
-        delete [] m_table;
-
-    m_size = other.m_size;
-    m_table = new tableElement[m_size];
+    m_function = other.m_function->_clone();
     
-    for (int i = 0; i < m_size; i++)
-        add(other.m_table[i].key, other.m_table[i].data);
+    if (m_size != other.m_size)
+        m_size = other.m_size;
     
-    m_function = other.m_function->clone();
-
+    HashTable temp(other);
+    std::swap(m_table, temp.m_table);
+    
     return *this;
 }
 
-bool HashTable::add(int key, std::string string) {
-    if (!m_function)
+bool HashTable::add(const int key, const std::string &data)
+{
+    bool isFull = true;
+    for (int i = 0; i < m_size; i++)
+        if (!m_table[i]->m_hasValue)
+            isFull = false;
+    
+    if (isFull || inTable(key))
         return false;
     
-    int index = (*m_function)(key, m_size, 1);
-//    std::cout << index << std::endl;
+    int index = m_function->hash(key, m_size);
     
-    if (!m_table[index].hasValue) {
-        m_table[index].key = key;
-        m_table[index].data = string;
-        m_table[index].hasValue = true;
+    if (!m_table[index]->m_hasValue) {
+        m_table[index]->m_key = key;
+        m_table[index]->m_hasValue = true;
+        m_table[index]->m_data = data;
+        return true;
         
     } else {
-        int i = 0;
-        while (i < m_size && m_table[i].hasValue)
-            i++;
-
-        if (i >= m_size)
-            return false;
-
-        m_table[index].next = &m_table[i];
-        m_table[i].key = key;
-        m_table[i].data = string;
-        m_table[i].hasValue = true;
+        if (m_table[index]->m_next) {
+            int i = index;
+            tableElement *temp = m_table[i];
+            while (temp->m_next && i < m_size) {
+                temp = temp->m_next;
+                i = _findIndex(temp);
+            }
+            if (i >= 0) {
+                for (int j = 0; j < m_size; j++) {
+                    if (!m_table[j]->m_hasValue) {
+                        m_table[j]->m_key = key;
+                        m_table[j]->m_hasValue = true;
+                        m_table[j]->m_data = data;
+                        m_table[i]->m_next = &(*m_table[j]);
+                        m_table[j]->m_prev = &(*m_table[i]);
+                        return true;
+                    }
+                }
+            }
+        } else {
+            for (int j = 0; j < m_size; j++) {
+                if (!m_table[j]->m_hasValue) {
+                    m_table[j]->m_key = key;
+                    m_table[j]->m_hasValue = true;
+                    m_table[j]->m_data = data;
+                    m_table[index]->m_next = &(*m_table[j]);
+                    m_table[j]->m_prev = &(*m_table[index]);
+                    return true;
+                }
+            }
+        }
     }
-    
-    return true;
-    
-    
-    
-//    if (inTable(key) || !m_function)
-//        return false;
-//
-//    int index = (*m_function)(key, m_size, 1);
-//    m_table[index].key = key;
-//    m_table[index].data = string;
-//    m_table[index].hasValue = true;
-//    m_table[index].next = &m_table[1];
-//    
-//    return true;
-    
-    
-    
-//    if (!m_function)
-//    return false;
-//
-//    int index = (*m_function)(m_size, key, 1);
-//    //std::cout « index « std::endl;
-//    if (!m_table[index].hasValue) {
-//        m_table[index].key = key;
-//        m_table[index].data = string;
-//        m_table[index].hasValue = true;
-//    } else {
-//        int newIndex = (*m_function)(m_size, key, 1);
-//        if (!m_table[newIndex].hasValue) {
-//            m_table[newIndex].key = key;
-//            m_table[newIndex].data = string;
-//            m_table[newIndex].hasValue = true;
-//            m_table[index].next = &m_table[newIndex];
-//        } else {
-//            return false;
-//        }
-//    }
-//    return true;
+    return false;
 }
+
 
 bool HashTable::remove(int key) {
     if (!m_function)
         return false;
     
-    int index = (*m_function)(key, m_size, 1);
-
-    if (!m_table[index].hasValue)
-        return false;
-
-    tableElement *temp = &m_table[index];
-    while (temp && temp->key != key && temp->hasValue)
-        temp = temp->next;
-
-    if (!temp)
+    if (!inTable(key))
         return false;
     
-    else if(temp->hasValue && temp->key == key) {
-        while (temp->next) {
-            temp->key = temp->next->key;
-            temp->data = temp->next->data;
-            temp = temp->next;
+    int index = m_function->hash(key, m_size);
+    
+    if (m_table[index]->m_key == key) {
+        if (!m_table[index]->m_prev && !m_table[index]->m_next) {
+            m_table[index]->m_hasValue = false;
+            m_table[index]->m_key = 0;
+            m_table[index]->m_data = "";
         }
-        temp->hasValue = false;
-        return true;
+        else if (m_table[index]->m_prev && !m_table[index]->m_next) {
+            m_table[index]->m_hasValue = false;
+            m_table[index]->m_key = 0;
+            m_table[index]->m_data = "";
+            m_table[index]->m_prev->m_next = nullptr;
+            m_table[index]->m_prev = nullptr;
+        }
+        else if (m_table[index]->m_next) {
+            tableElement* temp = m_table[index];
+            while (temp->m_next && temp->m_hasValue) {
+                temp->m_key = temp->m_next->m_key;
+                temp->m_data = temp->m_next->m_data;
+                temp = temp->m_next;
+            }
+            temp->m_hasValue = false;
+            temp->m_key = 0;
+            temp->m_data = "";
+            temp->m_prev->m_next = nullptr;
+            temp->m_prev = nullptr;
+        }
+    } else {
+        tableElement* temp = m_table[index];
+        while (temp->m_key != key)
+            temp = temp->m_next;
+        while (temp->m_next && temp->m_hasValue) {
+            temp->m_key = temp->m_next->m_key;
+            temp->m_data = temp->m_next->m_data;
+            temp = temp->m_next;
+        }
+        temp->m_hasValue = false;
+        temp->m_key = 0;
+        temp->m_data = "";
+        temp->m_prev->m_next = nullptr;
+        temp->m_prev = nullptr;
     }
-    
-    return false;
-    
-//    int index = (*m_function)(m_size, key, 1);
-//
-//    for (int i = 0; i < m_size && m_table[i].hasValue; i++)
-//        if (m_table[i].key == key) {
-//            m_table[i].key = m_table[i].next->key;
-//            m_table[i].data = m_table[i].next->data;
-//            m_table[i] = new tableElement(*m_table[i].next);
-//            return true;
-//        }
-//    
-//    return false;
+    return true;
 }
 
 bool HashTable::inTable(int key) {
-    int index = (*m_function)(key, m_size, 1);
-
-    tableElement* temp = &m_table[index];
-    while (temp && temp->key != key && temp->hasValue)
-        temp = temp->next;
-
-    if (!temp)
+    if (!_findElement(key))
         return false;
-    else if(temp->hasValue && temp->key == key)
+    else
         return true;
-    return false;
-    
 }
 
-void HashTable::changeFunction(IHashFunction *newFunction) {
-    m_function = newFunction;
+void HashTable::changeFunction(IHashFunction *function) {
+    if(function)
+        delete m_function;
+    
+    m_function = function;
+    std::vector<tableElement*> oldTable(m_size, nullptr);
+    oldTable.swap(m_table);
+    for (int i = 0; i < m_size; i++)
+    {
+        m_table[i] = new tableElement;
+    }
+    for (int i = 0; i < oldTable.size(); i++)
+    {
+        if (oldTable[i]->m_hasValue)
+        {
+            add(oldTable[i]->m_key, oldTable[i]->m_data);
+        }
+        delete oldTable[i];
+    }
+}
 
-    tableElement *newTable = new tableElement[m_size];
+void HashTable::resize(int size)
+{
+    if (m_size == size)
+    {
+        return;
+    }
+    std::vector<tableElement*> oldTable(m_size, nullptr);
+    std::swap(m_table, oldTable);
+    m_table.resize(size);
+    m_size = size;
+    for (int i = 0; i < size; ++i)
+    {
+        m_table[i] = new tableElement;
+    }
+    for (int i = 0; i < oldTable.size(); i++)
+    {
+        if (oldTable[i]->m_hasValue)
+        {
+            add(oldTable[i]->m_key, oldTable[i]->m_data);
+        }
+        delete oldTable[i];
+    }
+}
 
-    for (int i = 0; i < m_size; i++) {
-        
-        if (m_table[i].hasValue) {
-            
-            int index = (*m_function)(m_table[i].key, m_size, 1);
-            if (!newTable[index].hasValue) {
-                newTable[index].key = m_table[i].key;
-                newTable[index].data = m_table[i].data;
-                newTable[index].hasValue = true;
-                
-            } else {
-                int i = 0;
-                while (i < m_size && newTable[i].hasValue)
-                    i++;
+int HashTable::_findIndex(tableElement* element) const
+{
+    for (int i = 0; i < m_size; i++)
+    {
+        if((m_table[i]->m_key == element->m_key) && (m_table[i]->m_next == element->m_next))
+        {
+            return i;
+        }
+    }
+    return -1;
+}
 
-                newTable[index].next = &newTable[i];
-                newTable[i].key = m_table[i].key;
-                newTable[i].data = m_table[i].data;
-                newTable[i].hasValue = true;
+HashTable::tableElement*  HashTable::_findElement(const int key) const
+{
+    int index = m_function->hash(key, m_size);
+    if (m_table[index]->m_hasValue)
+    {
+        if (m_table[index]->m_key == key)
+        {
+            return m_table[index];
+        }
+        else
+        {
+            if (m_table[index]->m_next)
+            {
+                tableElement* temp = m_table[index];
+                while (temp->m_next)
+                {
+                    temp = temp->m_next;
+                    if (temp->m_key == key)
+                    {
+                        return temp;
+                    }
+                }
+                return nullptr;
+            }
+            else
+            {
+                return nullptr;
             }
         }
     }
-
-    delete [] m_table;
-    m_table = newTable;
+    else
+    {
+        return nullptr;
+    }
 }
-
-//void Hash::resize(const int size) {
-//    std::vector<Pair> oldData(size);
-//    std::swap(oldData, data);
-//
-//    for(int i = 0; i < oldData.size(); i++)
-//        if(oldData[i].value() != "")
-//            add(oldData[i].key(), oldData[i].value());
-//}
-
-
-
-
-
-//int Hash::Pair::key() const {
-//    return m_key;
-//}
-//
-//std::string Hash::Pair::value() const {
-//    return m_value;
-//}
-//
-//void Hash::Pair::setKey(const int key) {
-//    m_key = key;
-//}
-//
-//void Hash::Pair::setValue(const std::string& value) {
-//    m_value = value;
-//}
-//
-//Hash::Pair* Hash::Pair::next() {
-//    return m_next;
-//}
-//
-//const Hash::Pair* Hash::Pair::next() const {
-//    return m_next;
-//}
-//
-//void Hash::Pair::setNext(Pair* next) {
-//    m_next = next;
-//}
 
 std::ostream &operator <<(std::ostream &stream, const HashTable &object) {
     for (int i = 0; i < object.m_size; i++) {
-        if (object.m_table[i].hasValue)
+        if (object.m_table[i]->m_hasValue)
             stream << i << "\t" <<
                     &object.m_table[i] << "\t" <<
-                    object.m_table[i].next << "\t" <<
-                    object.m_table[i].key << "\t" <<
-                    object.m_table[i].data << std::endl;
+                    object.m_table[i]->m_next << "\t" <<
+                    object.m_table[i]->m_key << "\t" <<
+                    object.m_table[i]->m_data << std::endl;
         else
             stream << i << "\tFree" << std::endl;
     }
