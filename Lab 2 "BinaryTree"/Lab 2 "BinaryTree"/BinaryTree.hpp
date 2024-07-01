@@ -85,6 +85,8 @@ public:
     virtual bool removeNode(Node* toDelete, Node* parent);
     Node* getFree(Node* root);
     
+    void setRoot(Node* node) {m_root = node;}
+    
     
     Node *find(const int key) const;
     Node *find(Node *root, const int key) const;

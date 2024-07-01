@@ -1,22 +1,24 @@
 //
-//  AVLTreeTester.hpp
-//  Lab 4 "AVL tree"
+//  SearchTreeTester.hpp
+//  Lab 3 "Search Tree"
 //
-//  Created by Antony Miroshnichenko on 12.06.2024.
+//  Created by Antony Miroshnichenko on 16.05.2024.
 //
+
+
 
 #pragma once
 
-#include "AVLTree.hpp"
+#include "SearchTree.hpp"
 
-#include "SearchTreeTester.hpp"
+#include "BinaryTreeTester.hpp"
 
-class AVLTreeTester : public BinaryTreeTester
+class SearchTreeTester : public BinaryTreeTester
 {
     
 public:
-    AVLTreeTester(const bool useConsoleOutput, const bool enableAllTests = true);
-    ~AVLTreeTester() override = default;
+    SearchTreeTester(const bool useConsoleOutput, const bool enableAllTests = true);
+    ~SearchTreeTester() override = default;
 
 protected:
     BinaryTree *allocateTree() override;

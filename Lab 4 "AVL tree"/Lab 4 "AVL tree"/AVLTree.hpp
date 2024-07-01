@@ -20,7 +20,7 @@ protected:
     
 private:
     void balance(Node* root, Node* parent);
-    void balance2(Node* root, Node* parent);
+    void balanceNew(Node* root, Node* parent);
 
     
 public:
@@ -33,5 +33,4 @@ public:
     bool add(int key) override;
 
     AVLTree& operator = (const AVLTree& other) = default;
-
 };

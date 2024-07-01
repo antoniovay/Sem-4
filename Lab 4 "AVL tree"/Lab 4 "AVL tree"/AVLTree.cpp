@@ -110,8 +110,96 @@ void AVLTree::balance(Node* root, Node* parent)
     }
 }
 
-void AVLTree::balance2(Node* root, Node* parent) {
-    
+void AVLTree::balanceNew(Node* root, Node* parent)
+{
+    if (root && (root->left() || root->right()))
+    {
+        balanceNew(root->left(), root);
+        balanceNew(root->right(), root);
+        
+        switch (getRoot()->getBalance()) {
+            case 2:
+                if (root->left()->getBalance() > -1)
+                {
+                    Node* temp = root->left();
+                    root->setLeft(root->left()->right());
+                    temp->setRight(root);
+                    if (parent == nullptr)
+                        m_root = temp;
+                    else
+                    {
+                        if (parent->left() == root)
+                            parent->setLeft(temp);
+                        else
+                            parent->setRight(temp);
+                    }
+                    parent->setBalance(parent->getBalance() + 1 + std::max(0, -parent->right()->getBalance()));
+                    parent->right()->setBalance(parent->right()->getBalance() + 1 + std::max(0, static_cast<int>(parent->getBalance())));
+                }
+                else
+                {
+                    Node* temp = root->left()->right();
+                    root->left()->setRight(temp->left());
+                    temp->setLeft(root->left());
+                    root->setLeft(temp->right());
+                    temp->setRight(root);
+                    if (parent == nullptr)
+                        m_root = temp;
+                    else
+                    {
+                        if (parent->left() == root)
+                            parent->setLeft(temp);
+                        else
+                            parent->setRight(temp);
+                    }
+                    parent->setBalance(parent->getBalance() + 1 + std::max(0, -parent->left()->getBalance()));
+                    parent->left()->setBalance(parent->left()->getBalance() + 1 + std::max(0, static_cast<int>(parent->getBalance())));
+                }
+                break;
+                
+            case -2:
+                if (root->right()->getBalance() < 1)
+                {
+                    Node* temp = root->right();
+                    root->setRight(root->right()->left());
+                    temp->setLeft(root);
+                    if (parent == nullptr)
+                        m_root = temp;
+                    else
+                    {
+                        if (parent->left() == root)
+                            parent->setLeft(temp);
+                        else
+                            parent->setRight(temp);
+                    }
+                    parent->setBalance(parent->getBalance() + 1 + std::max(0, -parent->left()->getBalance()));
+                    parent->left()->setBalance(parent->left()->getBalance() + 1 + std::max(0, static_cast<int>(parent->getBalance())));
+                }
+                else
+                {
+                    Node* temp = root->right()->left();
+                    root->right()->setLeft(temp->right());
+                    temp->setRight(root->right());
+                    root->setRight(temp->left());
+                    temp->setLeft(root);
+                    if (parent == nullptr)
+                        m_root = temp;
+                    else
+                    {
+                        if (parent->left() == root)
+                            parent->setLeft(temp);
+                        else
+                            parent->setRight(temp);
+                    }
+                    parent->setBalance(parent->getBalance() + 1 + std::max(0, -parent->right()->getBalance()));
+                    parent->right()->setBalance(parent->right()->getBalance() + 1 + std::max(0, static_cast<int>(parent->getBalance())));
+                }
+                break;
+                
+            default:
+                break;
+        }
+    }
 }
 
 AVLTree::AVLTree()

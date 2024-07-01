@@ -3,16 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A0B01B3C2C07C87F004E2A37 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0B01B3B2C07C87F004E2A37 /* main.cpp */; };
-		A0B01B442C07C889004E2A37 /* HashTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0B01B422C07C889004E2A37 /* HashTable.cpp */; };
+		A07FE25A2C304ED300787E04 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A07FE2592C304ED300787E04 /* main.cpp */; };
+		A07FE2622C304EEA00787E04 /* HashTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A07FE2612C304EEA00787E04 /* HashTable.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A0B01B362C07C87F004E2A37 /* CopyFiles */ = {
+		A07FE2542C304ED300787E04 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -24,14 +24,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A0B01B382C07C87F004E2A37 /* Lab 6 "Hash" */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Lab 6 \"Hash\""; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0B01B3B2C07C87F004E2A37 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		A0B01B422C07C889004E2A37 /* HashTable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HashTable.cpp; sourceTree = "<group>"; };
-		A0B01B432C07C889004E2A37 /* HashTable.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HashTable.hpp; sourceTree = "<group>"; };
+		A07FE2562C304ED300787E04 /* HashTableVector */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HashTableVector; sourceTree = BUILT_PRODUCTS_DIR; };
+		A07FE2592C304ED300787E04 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		A07FE2602C304EEA00787E04 /* HashTable.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HashTable.hpp; sourceTree = "<group>"; };
+		A07FE2612C304EEA00787E04 /* HashTable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HashTable.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A0B01B352C07C87F004E2A37 /* Frameworks */ = {
+		A07FE2532C304ED300787E04 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,98 +41,98 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A0B01B2F2C07C87F004E2A37 = {
+		A07FE24D2C304ED300787E04 = {
 			isa = PBXGroup;
 			children = (
-				A0B01B3A2C07C87F004E2A37 /* Lab 6 "Hash" */,
-				A0B01B392C07C87F004E2A37 /* Products */,
+				A07FE2582C304ED300787E04 /* HashTableVector */,
+				A07FE2572C304ED300787E04 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		A0B01B392C07C87F004E2A37 /* Products */ = {
+		A07FE2572C304ED300787E04 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A0B01B382C07C87F004E2A37 /* Lab 6 "Hash" */,
+				A07FE2562C304ED300787E04 /* HashTableVector */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A0B01B3A2C07C87F004E2A37 /* Lab 6 "Hash" */ = {
+		A07FE2582C304ED300787E04 /* HashTableVector */ = {
 			isa = PBXGroup;
 			children = (
-				A0B01B3B2C07C87F004E2A37 /* main.cpp */,
-				A0B01B422C07C889004E2A37 /* HashTable.cpp */,
-				A0B01B432C07C889004E2A37 /* HashTable.hpp */,
+				A07FE2592C304ED300787E04 /* main.cpp */,
+				A07FE2602C304EEA00787E04 /* HashTable.hpp */,
+				A07FE2612C304EEA00787E04 /* HashTable.cpp */,
 			);
-			path = "Lab 6 \"Hash\"";
+			path = HashTableVector;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A0B01B372C07C87F004E2A37 /* Lab 6 "Hash" */ = {
+		A07FE2552C304ED300787E04 /* HashTableVector */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0B01B3F2C07C87F004E2A37 /* Build configuration list for PBXNativeTarget "Lab 6 "Hash"" */;
+			buildConfigurationList = A07FE25D2C304ED300787E04 /* Build configuration list for PBXNativeTarget "HashTableVector" */;
 			buildPhases = (
-				A0B01B342C07C87F004E2A37 /* Sources */,
-				A0B01B352C07C87F004E2A37 /* Frameworks */,
-				A0B01B362C07C87F004E2A37 /* CopyFiles */,
+				A07FE2522C304ED300787E04 /* Sources */,
+				A07FE2532C304ED300787E04 /* Frameworks */,
+				A07FE2542C304ED300787E04 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Lab 6 \"Hash\"";
-			productName = "Lab 6 \"Hash\"";
-			productReference = A0B01B382C07C87F004E2A37 /* Lab 6 "Hash" */;
+			name = HashTableVector;
+			productName = HashTableVector;
+			productReference = A07FE2562C304ED300787E04 /* HashTableVector */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A0B01B302C07C87F004E2A37 /* Project object */ = {
+		A07FE24E2C304ED300787E04 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
-					A0B01B372C07C87F004E2A37 = {
-						CreatedOnToolsVersion = 15.4;
+					A07FE2552C304ED300787E04 = {
+						CreatedOnToolsVersion = 16.0;
 					};
 				};
 			};
-			buildConfigurationList = A0B01B332C07C87F004E2A37 /* Build configuration list for PBXProject "Lab 6 "Hash"" */;
-			compatibilityVersion = "Xcode 14.0";
+			buildConfigurationList = A07FE2512C304ED300787E04 /* Build configuration list for PBXProject "HashTableVector" */;
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = A0B01B2F2C07C87F004E2A37;
-			productRefGroup = A0B01B392C07C87F004E2A37 /* Products */;
+			mainGroup = A07FE24D2C304ED300787E04;
+			productRefGroup = A07FE2572C304ED300787E04 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A0B01B372C07C87F004E2A37 /* Lab 6 "Hash" */,
+				A07FE2552C304ED300787E04 /* HashTableVector */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A0B01B342C07C87F004E2A37 /* Sources */ = {
+		A07FE2522C304ED300787E04 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0B01B3C2C07C87F004E2A37 /* main.cpp in Sources */,
-				A0B01B442C07C889004E2A37 /* HashTable.cpp in Sources */,
+				A07FE2622C304EEA00787E04 /* HashTable.cpp in Sources */,
+				A07FE25A2C304ED300787E04 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		A0B01B3D2C07C87F004E2A37 /* Debug */ = {
+		A07FE25B2C304ED300787E04 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -185,7 +185,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -193,7 +193,7 @@
 			};
 			name = Debug;
 		};
-		A0B01B3E2C07C87F004E2A37 /* Release */ = {
+		A07FE25C2C304ED300787E04 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -240,14 +240,14 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
 			};
 			name = Release;
 		};
-		A0B01B402C07C87F004E2A37 /* Debug */ = {
+		A07FE25E2C304ED300787E04 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -255,7 +255,7 @@
 			};
 			name = Debug;
 		};
-		A0B01B412C07C87F004E2A37 /* Release */ = {
+		A07FE25F2C304ED300787E04 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -266,25 +266,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A0B01B332C07C87F004E2A37 /* Build configuration list for PBXProject "Lab 6 "Hash"" */ = {
+		A07FE2512C304ED300787E04 /* Build configuration list for PBXProject "HashTableVector" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A0B01B3D2C07C87F004E2A37 /* Debug */,
-				A0B01B3E2C07C87F004E2A37 /* Release */,
+				A07FE25B2C304ED300787E04 /* Debug */,
+				A07FE25C2C304ED300787E04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0B01B3F2C07C87F004E2A37 /* Build configuration list for PBXNativeTarget "Lab 6 "Hash"" */ = {
+		A07FE25D2C304ED300787E04 /* Build configuration list for PBXNativeTarget "HashTableVector" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A0B01B402C07C87F004E2A37 /* Debug */,
-				A0B01B412C07C87F004E2A37 /* Release */,
+				A07FE25E2C304ED300787E04 /* Debug */,
+				A07FE25F2C304ED300787E04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = A0B01B302C07C87F004E2A37 /* Project object */;
+	rootObject = A07FE24E2C304ED300787E04 /* Project object */;
 }

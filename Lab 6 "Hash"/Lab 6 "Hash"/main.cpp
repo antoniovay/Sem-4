@@ -6,31 +6,35 @@
 //
 
 #include <iostream>
+#include <assert.h>
 
-#include "Hash.hpp"
+//#include <QApplication>
+//#include <QDebug>
 
-int main()
-{
-    Hash table(5);
+//#include "MainWindow.hpp"
 
-    table.add(88, "raz");
-    table.add(72, "dva");
-    table.add(22, "tri");
-    table.add(59, "chetyire");
-    table.add(61, "pyat");
-    //table.add(22, "qwerty");
-    
-    std::cout << table << std::endl;
-    
-    table.remove(59);
-    
-    std::cout << table << std::endl;
-    
-    table.changeFunction(new SecondHashFunction);
-    
-    table.add(59, "desyat");
-    
-    std::cout << table << std::endl;
-    
+#include "HashTable.hpp"
+
+
+
+//int main(int argc, char *argv[])
+//{
+//    QApplication app(argc, argv);
+//    MainWindow mw;
+//    mw.show();
+//    return app.exec();
+//}
+
+
+
+int main() {
+    HashTable t(6, new FirstHashFunction);
+    t.add (33, "33");
+    t.add (10, "10"); 
+    t.add (44, "44");
+    t.add (30, "30");
+    t.add (50, "50");
+    t.add (80, "80"); 
+    std::cout << t;
     return 0;
 }
