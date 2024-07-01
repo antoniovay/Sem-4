@@ -27,7 +27,7 @@ int main() {
     FirstHashFunction first;
     HashTable<std::string> table(10, &first);
     
-    //table.print();
+    table.print();
     std::cout << std::endl;
     
     table.add(1, "one");
@@ -43,7 +43,7 @@ int main() {
     table.add(1000000, "eleven");
     table.add(100, "twelve");
     
-    //table.print();
+    table.print();
     
     return 0;
 }

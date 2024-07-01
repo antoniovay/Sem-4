@@ -110,6 +110,7 @@ public:
     
     bool inTable(const int key) const;
     void changeFunction(IHashFunction* newHashFunction);
+    void print() const;
 
     int size() const;
     void resize(const int size);

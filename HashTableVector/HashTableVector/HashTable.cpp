@@ -93,6 +93,18 @@ void HashTable<Type>::changeFunction(IHashFunction *function) {
 }
 
 template <typename Type>
+void HashTable<Type>::print() const {
+    for (int i = 0; i < m_size; i++) {
+        std::cout << i << ": ";
+        for (const auto &tabElem : m_table[i])
+            std::cout << "(" <<
+                    tabElem.m_key << ", " <<
+                    tabElem.m_data << ") ";
+        std::cout << std::endl;
+    }
+}
+
+template <typename Type>
 void HashTable<Type>::resize(const int size) {
     std::vector<std::list<tableElement>> newTable(size);
     for (const auto &list : m_table) {
