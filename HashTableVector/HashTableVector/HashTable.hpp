@@ -77,24 +77,24 @@ private:
 };
 
 
-template <typename Type>
-struct tableElement
-{
-    int m_key;
-    Type m_data;
-   
-    tableElement(int key, const Type &data)
-        : m_key(key),
-          m_data(data)
-    {}
-};
+
+
 
 
 template <typename Type>
 class HashTable
 {
 public:
-    struct tableElement;
+    struct tableElement
+    {
+        int m_key;
+        Type m_data;
+       
+        tableElement(int key, const Type &data)
+            : m_key(key),
+              m_data(data)
+        {}
+    };
 
 public:
 
